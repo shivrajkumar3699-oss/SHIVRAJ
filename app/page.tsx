@@ -16,11 +16,8 @@ export default function Home() {
    const a=audioRef.current;
    if(!a)return false;
    try{
-     a.src="/melody.mp3";
-     a.preload="auto";
      a.muted=false;
      a.volume=1;
-     a.load();
      await a.play();
      setMuted(false);
      console.log("Melody started successfully");
@@ -30,11 +27,10 @@ export default function Home() {
      return false;
    }
  };
- const enterSite=()=>{
+ const enterSite=async()=>{
+   const started=await startMelody();
    setEntered(true);
- };
- const handleEnterPointerDown=()=>{
-   void startMelody();
+   if(!started)console.warn("Melody did not start; use the speaker button to retry.");
  };
  const toggleAudio=async()=>{
    const a=audioRef.current;
@@ -62,7 +58,7 @@ export default function Home() {
     onLoadedMetadata={()=>console.log("Melody metadata loaded:", audioRef.current?.duration)}
     onError={()=>console.error("Melody source error:", audioRef.current?.error)}
   />
-  {!entered&&<div className="welcomeScreen"><div className="welcomeGlow"/><div className="welcomeParticles">{particles.map(i=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div><div className="welcomeContent"><div className="welcomeName">Shivraj</div><button className="enterButton" onPointerDown={handleEnterPointerDown} onClick={enterSite}><span>Tap to enter</span><b>↗</b></button></div></div>}
+  {!entered&&<div className="welcomeScreen"><div className="welcomeGlow"/><div className="welcomeParticles">{particles.map(i=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div><div className="welcomeContent"><div className="welcomeName">Shivraj</div><button className="enterButton" onClick={enterSite}><span>Tap to enter</span><b>↗</b></button></div></div>}
   <button className="audioButton" onClick={toggleAudio} aria-label={muted ? "Play melody" : "Mute melody"}>{muted ? "🔇" : "🔊"}</button><div className="noise"/><div className="ambientParticles">{particles.map(i=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div>
   <nav className={scrolled?"nav navScrolled":"nav"}><a className="brand" href="#top">S<span>.</span></a><div className="navLinks"><a href="#about">About</a><a href="#work">Work</a><a className="navCta" href="#contact">Let&apos;s talk <span>↗</span></a></div></nav>
   <section id="top" className="hero"><div className="orb orbOne"/><div className="orb orbTwo"/><div className="heroGrid"/><div className="particles">{Array.from({length:18},(_,i)=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div><div className="heroInner"><p className="eyebrow"><span/> Creative Developer · AI · Web</p><h1>SHIVRAJ</h1><p className="heroSub">Building ideas into <em>experiences.</em></p><a href="#work" className="heroButton">Explore my work <span>↓</span></a></div><div className="scrollHint"><span/> Scroll to explore</div></section>
