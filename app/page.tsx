@@ -12,8 +12,8 @@ export default function Home() {
  const [muted,setMuted]=useState(false);
  const audioRef=useRef<HTMLAudioElement>(null);
  useEffect(()=>{const f=()=>setScrolled(scrollY>30);addEventListener("scroll",f,{passive:true});return()=>removeEventListener("scroll",f)},[]);
- const enterSite=()=>{setEntered(true);const a=audioRef.current;if(a){a.muted=false;setMuted(false);a.play().catch(()=>{});}};
- const toggleAudio=()=>{const a=audioRef.current;if(!a)return;if(a.paused)a.play().catch(()=>{});a.muted=!a.muted;setMuted(a.muted);};
+ const enterSite=async()=>{setEntered(true);const a=audioRef.current;if(a){try{a.muted=false;a.volume=1;await a.play();setMuted(false);}catch(e){console.error("Melody playback failed:",e);}}};
+ const toggleAudio=async()=>{const a=audioRef.current;if(!a)return;try{if(a.paused){a.muted=false;a.volume=1;await a.play();setMuted(false);}else{a.muted=!a.muted;setMuted(a.muted);}}catch(e){console.error("Melody playback failed:",e);}};
  const particles=Array.from({length:52},(_,i)=>i);
  return <main className={entered?"siteEntered":""}><audio ref={audioRef} loop preload="auto" src="https://ia600507.us.archive.org/15/items/4_20261006_20261006_1429/4.mp3" />{!entered&&<div className="welcomeScreen"><div className="welcomeGlow"/><div className="welcomeParticles">{particles.map(i=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div><div className="welcomeContent"><div className="welcomeName">Shivraj</div><button className="enterButton" onClick={enterSite}><span>Tap to enter</span><b>↗</b></button></div></div>}
   <button className="audioButton" onClick={toggleAudio} aria-label={muted ? "Play melody" : "Mute melody"}>{muted ? "🔇" : "🔊"}</button><div className="noise"/><div className="ambientParticles">{particles.map(i=><i key={i} style={{"--i":i} as React.CSSProperties}/>)}</div>
