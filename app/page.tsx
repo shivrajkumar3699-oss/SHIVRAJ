@@ -29,10 +29,8 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    const hasEntered = sessionStorage.getItem("shivraj-portfolio-entered") === "true";
     const savedMuted = sessionStorage.getItem("shivraj-portfolio-muted") === "true";
 
-    if (hasEntered) setEntered(true);
     if (savedMuted) setMuted(true);
     if (audioRef.current) audioRef.current.muted = savedMuted;
 
@@ -93,7 +91,6 @@ export default function Home() {
 
   const enterSite = async () => {
     const started = await startMelody();
-    sessionStorage.setItem("shivraj-portfolio-entered", "true");
     setEntered(true);
     if (!started) {
       console.warn("Melody did not start; use the speaker button to retry.");
@@ -274,7 +271,6 @@ export default function Home() {
               href="#contact"
               onClick={(event) => {
                 event.preventDefault();
-                sessionStorage.setItem("shivraj-portfolio-entered", "true");
                 window.history.replaceState(null, "", "#contact");
                 document.getElementById("contact")?.scrollIntoView({
                   behavior: "smooth",
