@@ -20,6 +20,8 @@ const projects = [
   },
 ];
 
+const CONTACT_EMAIL = "shivrajkumar3699@gmail.com";
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [entered, setEntered] = useState(false);
@@ -137,6 +139,10 @@ export default function Home() {
     } catch (e) {
       console.error("Melody playback failed:", e);
     }
+  };
+
+  const openDefaultMailApp = () => {
+    window.location.href = `mailto:${CONTACT_EMAIL}`;
   };
 
   const particles = Array.from({ length: 52 }, (_, i) => i);
@@ -408,8 +414,12 @@ export default function Home() {
             <br />
             <span>real.</span>
           </h2>
-          <a href="mailto:shivrajkumar3699@gmail.com" className="mail">
-            shivrajkumar3699@gmail.com <b>↗</b>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="mail"
+            onClick={openDefaultMailApp}
+          >
+            {CONTACT_EMAIL} <b>↗</b>
           </a>
         </div>
       </section>
