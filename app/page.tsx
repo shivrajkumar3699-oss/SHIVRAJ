@@ -27,6 +27,13 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
+    const hasEntered = sessionStorage.getItem("shivraj-portfolio-entered") === "true";
+    const savedMuted = sessionStorage.getItem("shivraj-portfolio-muted") === "true";
+
+    if (hasEntered) setEntered(true);
+    if (savedMuted) setMuted(true);
+    if (audioRef.current) audioRef.current.muted = savedMuted;
+
     const f = () => setScrolled(scrollY > 30);
     addEventListener("scroll", f, { passive: true });
 
@@ -73,6 +80,7 @@ export default function Home() {
       requestAnimationFrame(fadeIn);
 
       setMuted(false);
+      sessionStorage.setItem("shivraj-portfolio-muted", "false");
       console.log("Melody started successfully");
       return true;
     } catch (e) {
@@ -83,6 +91,7 @@ export default function Home() {
 
   const enterSite = async () => {
     const started = await startMelody();
+    sessionStorage.setItem("shivraj-portfolio-entered", "true");
     setEntered(true);
     if (!started) {
       console.warn("Melody did not start; use the speaker button to retry.");
@@ -123,6 +132,7 @@ export default function Home() {
       } else {
         a.muted = !a.muted;
         setMuted(a.muted);
+        sessionStorage.setItem("shivraj-portfolio-muted", String(a.muted));
       }
     } catch (e) {
       console.error("Melody playback failed:", e);
@@ -253,7 +263,19 @@ export default function Home() {
                 Ramgarh, Jharkhand - 829122
               </button>
             </p>
-            <a className="identityContact" href="#contact">
+            <a
+              className="identityContact"
+              href="#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                sessionStorage.setItem("shivraj-portfolio-entered", "true");
+                window.history.replaceState(null, "", "#contact");
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
+            >
               <span>CONTACT</span>
               <b>↗</b>
             </a>
