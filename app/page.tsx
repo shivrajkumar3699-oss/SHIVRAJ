@@ -29,7 +29,28 @@ export default function Home() {
   useEffect(() => {
     const f = () => setScrolled(scrollY > 30);
     addEventListener("scroll", f, { passive: true });
-    return () => removeEventListener("scroll", f);
+
+    const revealItems = document.querySelectorAll(
+      ".section, .project, footer"
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("isVisible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      removeEventListener("scroll", f);
+      observer.disconnect();
+    };
   }, []);
 
   const startMelody = async () => {
@@ -38,8 +59,19 @@ export default function Home() {
 
     try {
       a.muted = false;
-      a.volume = 1;
+      a.volume = 0;
       await a.play();
+
+      const startedAt = performance.now();
+      const fadeIn = (now: number) => {
+        const progress = Math.min((now - startedAt) / 1800, 1);
+        a.volume = 0.32 * progress;
+        if (progress < 1) {
+          requestAnimationFrame(fadeIn);
+        }
+      };
+      requestAnimationFrame(fadeIn);
+
       setMuted(false);
       console.log("Melody started successfully");
       return true;
@@ -95,7 +127,10 @@ export default function Home() {
 
       {!entered && (
         <div className="welcomeScreen">
+          <div className="welcomeVignette" />
           <div className="welcomeGlow" />
+          <div className="welcomeRing welcomeRingOne" />
+          <div className="welcomeRing welcomeRingTwo" />
           <div className="welcomeParticles">
             {particles.map((i) => (
               <i
@@ -105,11 +140,14 @@ export default function Home() {
             ))}
           </div>
           <div className="welcomeContent">
+            <div className="welcomeKicker">CREATIVE DEVELOPER · AI · WEB</div>
             <div className="welcomeName">Shivraj</div>
+            <div className="welcomeRule" />
             <button className="enterButton" onClick={enterSite}>
-              <span>Tap to enter</span>
+              <span>Enter experience</span>
               <b>↗</b>
             </button>
+            <div className="welcomeHint">Sound on · An immersive portfolio</div>
           </div>
         </div>
       )}
@@ -155,14 +193,14 @@ export default function Home() {
           ))}
         </div>
         <div className="heroInner">
-          <p className="eyebrow">
+          <p className="eyebrow heroReveal heroRevealOne">
             <span /> Creative Developer · AI · Web
           </p>
-          <h1>SHIVRAJ</h1>
-          <p className="heroSub">
+          <h1 className="heroReveal heroRevealTwo">SHIVRAJ</h1>
+          <p className="heroSub heroReveal heroRevealThree">
             Building ideas into <em>experiences.</em>
           </p>
-          <a href="#work" className="heroButton">
+          <a href="#work" className="heroButton heroReveal heroRevealFour">
             Explore my work <span>↓</span>
           </a>
         </div>
