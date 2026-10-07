@@ -154,21 +154,10 @@ export default function Home() {
       window.removeEventListener("blur", markAppOpened);
 
       if (!appOpened && document.visibilityState === "visible") {
-        window.open(
-          `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`,
-          "_blank",
-          "noopener,noreferrer"
-        );
+        window.location.href =
+          `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`;
       }
-    }, 1200);
-  };
-
-  const openGmailBrowser = () => {
-    window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    }, 650);
   };
 
   const particles = Array.from({ length: 52 }, (_, i) => i);
@@ -447,14 +436,6 @@ export default function Home() {
             >
               {CONTACT_EMAIL} <b>↗</b>
             </a>
-            <button
-              type="button"
-              className="mailBrowser"
-              onClick={openGmailBrowser}
-              aria-label="Open Gmail in browser"
-            >
-              Open in Gmail ↗
-            </button>
           </div>
         </div>
       </section>
