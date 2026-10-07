@@ -89,6 +89,30 @@ export default function Home() {
     }
   };
 
+  const openRamgarhMaps = () => {
+    const destination = "Ramgarh, Jharkhand 829122, India";
+    const ua = navigator.userAgent || "";
+    const isIOS = /iPad|iPhone|iPod/.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/i.test(ua);
+
+    if (isIOS) {
+      window.location.href = `maps://?q=${encodeURIComponent(destination)}`;
+      return;
+    }
+
+    if (isAndroid) {
+      window.location.href = `geo:0,0?q=${encodeURIComponent(destination)}`;
+      return;
+    }
+
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   const toggleAudio = async () => {
     const a = audioRef.current;
     if (!a) return;
@@ -212,11 +236,28 @@ export default function Home() {
       <section id="about" className="about section">
         <div className="sectionLabel">01 — ABOUT</div>
         <div className="aboutGrid">
-          <h2>
-            17. Curious.
-            <br />
-            <span>Creative. Building.</span>
-          </h2>
+          <div className="aboutIdentity">
+            <p className="identityIntro">Hey My Name is</p>
+            <h2 className="identityName">SHIVRAJ</h2>
+            <p className="identityAge">
+              I Am Just <strong>17</strong> Years old Boy
+            </p>
+            <p className="identityLocation">
+              I Am From{" "}
+              <button
+                type="button"
+                className="locationLink"
+                onClick={openRamgarhMaps}
+                aria-label="Open Ramgarh, Jharkhand 829122 in maps"
+              >
+                Ramgarh, Jharkhand - 829122
+              </button>
+            </p>
+            <a className="identityContact" href="#contact">
+              <span>CONTACT</span>
+              <b>↗</b>
+            </a>
+          </div>
           <div className="aboutCopy">
             <p className="lead">
               I like turning ambitious ideas into digital products that feel as good as they work.
