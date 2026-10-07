@@ -80,7 +80,6 @@ export default function Home() {
       <audio
         ref={audioRef}
         src="/melody.mp3"
-        type="audio/mpeg"
         loop
         preload="auto"
         onCanPlay={() =>
