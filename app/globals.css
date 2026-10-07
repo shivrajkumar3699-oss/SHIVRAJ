@@ -265,3 +265,157 @@ footer.isVisible{opacity:1;transform:none}
   .section,.project,footer{opacity:1;transform:none;filter:none}
   .heroReveal{opacity:1;transform:none}
 }
+
+
+/* Premium about identity */
+.aboutIdentity{
+  position:relative;
+  align-self:start;
+  padding:18px 0 12px 2px;
+}
+.aboutIdentity:before{
+  content:"";
+  position:absolute;
+  left:-28px;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:linear-gradient(180deg,transparent,#F7D002 18%,rgba(247,208,2,.2) 78%,transparent);
+  box-shadow:0 0 18px rgba(247,208,2,.22);
+}
+.identityIntro{
+  margin:0 0 10px;
+  color:#a7a7a0;
+  font-family:"Bodoni 72","Didot","Times New Roman",serif;
+  font-style:italic;
+  font-size:clamp(19px,2.2vw,29px);
+  letter-spacing:-.025em;
+  text-shadow:0 0 22px rgba(247,208,2,.1);
+}
+.identityName{
+  margin:0;
+  color:#F7D002;
+  font-family:"Brush Script MT","Segoe Script","Snell Roundhand",cursive;
+  font-size:clamp(72px,9vw,132px);
+  font-weight:700;
+  line-height:.78;
+  letter-spacing:-.045em;
+  transform:rotate(-3deg);
+  transform-origin:left center;
+  text-shadow:
+    0 0 10px rgba(247,208,2,.55),
+    0 0 35px rgba(247,208,2,.3),
+    0 0 85px rgba(247,208,2,.16);
+  animation:identityGlow 4.5s ease-in-out infinite;
+}
+.identityAge,
+.identityLocation{
+  margin:27px 0 0;
+  color:#aaa9a3;
+  font-size:clamp(15px,1.5vw,19px);
+  line-height:1.35;
+  letter-spacing:-.025em;
+}
+.identityAge strong{
+  display:inline-block;
+  color:#F7D002;
+  font-family:"Brush Script MT","Segoe Script","Snell Roundhand",cursive;
+  font-size:1.8em;
+  line-height:.7;
+  font-weight:700;
+  transform:rotate(-5deg);
+  text-shadow:
+    0 0 10px rgba(247,208,2,.65),
+    0 0 32px rgba(247,208,2,.35),
+    0 0 65px rgba(247,208,2,.18);
+  animation:ageGlow 4.5s ease-in-out infinite .5s;
+}
+.identityLocation{margin-top:13px}
+.locationLink{
+  appearance:none;
+  border:0;
+  border-bottom:1px solid rgba(247,208,2,.48);
+  background:none;
+  padding:0 0 2px;
+  color:#F7D002;
+  font:inherit;
+  font-weight:650;
+  cursor:pointer;
+  text-align:left;
+  text-shadow:0 0 18px rgba(247,208,2,.2);
+  transition:.35s cubic-bezier(.16,1,.3,1);
+}
+.locationLink:hover{
+  color:#fff4a6;
+  border-color:#F7D002;
+  text-shadow:0 0 10px rgba(247,208,2,.75),0 0 30px rgba(247,208,2,.35);
+  transform:translateY(-1px);
+}
+.identityContact{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:22px;
+  margin-top:34px;
+  padding:14px 19px 14px 23px;
+  border:1px solid rgba(247,208,2,.55);
+  border-radius:999px;
+  color:#080808;
+  background:linear-gradient(135deg,#F7D002,#ffe96b 52%,#F7D002);
+  box-shadow:
+    0 12px 35px rgba(247,208,2,.16),
+    0 0 28px rgba(247,208,2,.12),
+    inset 0 1px 0 rgba(255,255,255,.55);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.2em;
+  overflow:hidden;
+  transition:.45s cubic-bezier(.16,1,.3,1);
+}
+.identityContact:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.7) 50%,transparent 75%);
+  transform:translateX(-130%);
+  transition:transform .75s cubic-bezier(.16,1,.3,1);
+}
+.identityContact span,
+.identityContact b{position:relative;z-index:1}
+.identityContact b{
+  font-size:16px;
+  transition:transform .45s cubic-bezier(.16,1,.3,1);
+}
+.identityContact:hover{
+  transform:translateY(-5px) scale(1.035);
+  box-shadow:
+    0 20px 55px rgba(247,208,2,.25),
+    0 0 45px rgba(247,208,2,.2),
+    inset 0 1px 0 rgba(255,255,255,.7);
+}
+.identityContact:hover:before{transform:translateX(130%)}
+.identityContact:hover b{transform:translate(4px,-4px)}
+@keyframes identityGlow{
+  50%{
+    text-shadow:
+      0 0 14px rgba(247,208,2,.72),
+      0 0 45px rgba(247,208,2,.42),
+      0 0 100px rgba(247,208,2,.2);
+    transform:rotate(-2deg) translateY(-2px);
+  }
+}
+@keyframes ageGlow{
+  50%{transform:rotate(-2deg) scale(1.06);text-shadow:0 0 14px rgba(247,208,2,.8),0 0 38px rgba(247,208,2,.45)}
+}
+@media(max-width:700px){
+  .aboutGrid{gap:60px}
+  .aboutIdentity{padding-left:4px}
+  .aboutIdentity:before{left:-14px}
+  .identityName{font-size:25vw}
+  .identityIntro{font-size:22px}
+  .identityAge,.identityLocation{font-size:16px}
+  .identityContact{margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  .identityName,.identityAge strong{animation:none}
+}
