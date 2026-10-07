@@ -139,7 +139,36 @@ export default function Home() {
   };
 
   const openDefaultMailApp = () => {
-    window.location.href = `mailto:${CONTACT_EMAIL}`;
+    const mailtoUrl = `mailto:${CONTACT_EMAIL}`;
+    let appOpened = false;
+
+    const markAppOpened = () => {
+      appOpened = true;
+    };
+
+    window.addEventListener("blur", markAppOpened, { once: true });
+
+    window.location.href = mailtoUrl;
+
+    window.setTimeout(() => {
+      window.removeEventListener("blur", markAppOpened);
+
+      if (!appOpened && document.visibilityState === "visible") {
+        window.open(
+          `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
+    }, 1200);
+  };
+
+  const openGmailBrowser = () => {
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   const particles = Array.from({ length: 52 }, (_, i) => i);
@@ -410,13 +439,23 @@ export default function Home() {
             <br />
             <span>real.</span>
           </h2>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mail"
-            onClick={openDefaultMailApp}
-          >
-            {CONTACT_EMAIL} <b>↗</b>
-          </a>
+          <div className="mailActions">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mail"
+              onClick={openDefaultMailApp}
+            >
+              {CONTACT_EMAIL} <b>↗</b>
+            </a>
+            <button
+              type="button"
+              className="mailBrowser"
+              onClick={openGmailBrowser}
+              aria-label="Open Gmail in browser"
+            >
+              Open in Gmail ↗
+            </button>
+          </div>
         </div>
       </section>
 
