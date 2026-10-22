@@ -308,11 +308,11 @@ export default function Home() {
 
         <svg className="storyLandscape" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice" role="img" aria-label={nightMode ? "A moonlit mountain campsite with flying owls" : "A sunny hand-drawn mountain landscape with birds and a camper"}>
           <defs>
-            <linearGradient id="storyDaySky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#91cfe5"/><stop offset="62%" stopColor="#d9eddb"/><stop offset="100%" stopColor="#f5dca4"/></linearGradient>
-            <linearGradient id="storyNightSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#07152d"/><stop offset="58%" stopColor="#111d3d"/><stop offset="100%" stopColor="#283d50"/></linearGradient>
+            <linearGradient id="storyDaySky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#168be5"/><stop offset="43%" stopColor="#61c4f4"/><stop offset="76%" stopColor="#b8e6ff"/><stop offset="100%" stopColor="#ffe0b1"/></linearGradient>
+            <linearGradient id="storyNightSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#02091e"/><stop offset="38%" stopColor="#081b43"/><stop offset="72%" stopColor="#17345f"/><stop offset="100%" stopColor="#304e70"/></linearGradient>
             <linearGradient id="storyFarMountain" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#a9d2c5"/><stop offset="100%" stopColor="#6b9d9a"/></linearGradient>
             <linearGradient id="storyNearMountain" x1="0" y1="0" x2="0.8" y2="1"><stop offset="0%" stopColor="#5b9c85"/><stop offset="100%" stopColor="#306b5a"/></linearGradient>
-            <linearGradient id="storyPlateau" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#8ab77c"/><stop offset="100%" stopColor="#4f885d"/></linearGradient>
+            <linearGradient id="storyPlateau" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#b2d87c"/><stop offset="42%" stopColor="#6da75c"/><stop offset="100%" stopColor="#315c49"/></linearGradient><linearGradient id="storyLake" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#b3e8f5" stopOpacity=".82"/><stop offset="100%" stopColor="#2787b4" stopOpacity=".16"/></linearGradient><linearGradient id="storyTentCanvas" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#fff0bd"/><stop offset="55%" stopColor="#e7bd78"/><stop offset="100%" stopColor="#b67a47"/></linearGradient><linearGradient id="storyTentWarm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#ffdb8a" stopOpacity=".9"/><stop offset="100%" stopColor="#f47a27" stopOpacity=".15"/></linearGradient>
             <radialGradient id="storyMoonGlow"><stop offset="0%" stopColor="#fffdf0" stopOpacity=".9"/><stop offset="45%" stopColor="#d8e8ff" stopOpacity=".25"/><stop offset="100%" stopColor="#a8c7ff" stopOpacity="0"/></radialGradient>
             <radialGradient id="storyFireGlow"><stop offset="0%" stopColor="#ffb34f" stopOpacity=".75"/><stop offset="100%" stopColor="#ff782f" stopOpacity="0"/></radialGradient>
           </defs>
@@ -320,31 +320,26 @@ export default function Home() {
             <rect width="1440" height="620" fill="url(#storyDaySky)"/>
             <circle cx="1130" cy="110" r="105" fill="#fff4ba" opacity=".24" className="storySunHalo"/>
             <circle cx="1130" cy="110" r="48" fill="#ffe17b" stroke="#f8c957" strokeWidth="3" className="storySunDisc"/>
-            <g fill="#fff7df" opacity=".68">
-              <path d="M120 154c-5-22 12-39 34-36 10-29 53-33 70-5 30-6 48 21 36 43H120Z"/>
-              <path d="M420 95c-4-17 10-31 28-28 9-24 42-27 56-4 24-5 39 17 29 32H420Z"/>
-            </g>
+            <g className="storyDayClouds" fill="#fff7e8" opacity=".76"><path d="M-40 171c-7-30 17-51 46-45 15-37 67-43 91-7 36-8 62 20 48 52H-40Z"/><path d="M120 154c-5-22 12-39 34-36 10-29 53-33 70-5 30-6 48 21 36 43H120Z"/><path d="M420 95c-4-17 10-31 28-28 9-24 42-27 56-4 24-5 39 17 29 32H420Z"/><path d="M1110 218c-6-23 12-39 35-35 11-29 51-32 68-5 30-6 48 20 37 40H1110Z" opacity=".52"/></g><g className="storySunRays" transform="translate(1130 110)" stroke="#fff1ad" strokeWidth="4" strokeLinecap="round" opacity=".78">{Array.from({length:12},(_,i)=><path key={i} d="M0-68V-82" transform={`rotate(${i*30})`}/>)}</g>
           </g>
           <g className="storyNightLayer">
             <rect width="1440" height="620" fill="url(#storyNightSky)"/>
             <circle cx="1128" cy="112" r="150" fill="url(#storyMoonGlow)" className="storyMoonAura"/>
             <circle cx="1128" cy="112" r="53" fill="#f3f5ff" className="storyMoonDisc"/>
-            <g fill="#d0d8ee" opacity=".26">
-              <circle cx="1110" cy="91" r="8"/><circle cx="1144" cy="124" r="12"/><circle cx="1139" cy="82" r="5"/><circle cx="1097" cy="127" r="4"/><circle cx="1161" cy="101" r="6"/>
-            </g>
+            <g fill="#a9c8ff" opacity=".5"><circle cx="1110" cy="91" r="8"/><circle cx="1144" cy="124" r="12"/><circle cx="1139" cy="82" r="5"/><circle cx="1097" cy="127" r="4"/><circle cx="1161" cy="101" r="6"/><circle cx="1118" cy="145" r="3"/><circle cx="1089" cy="103" r="4"/></g><g className="storyMilkyWay" fill="#d9e8ff" opacity=".22">{Array.from({length:40},(_,i)=><circle key={i} cx={(i*89+170)%1430} cy={(i*47+28)%320} r={i%5===0?2:0.9}/>)}</g>
             {Array.from({length: 64}, (_, i) => (
               <circle key={i} className="storyStar" cx={(i * 197 + 43) % 1430 + 5} cy={(i * 71 + 19) % 290 + 8} r={i % 7 === 0 ? 2.1 : 1.15} style={{ "--i": i } as React.CSSProperties} />
             ))}
           </g>
           <g className="storyMountains">
-            <path d="M0 440 115 300 180 350 322 145 455 335 560 220 692 366 818 190 972 356 1095 245 1240 363 1360 285 1440 344V620H0Z" fill="url(#storyFarMountain)" stroke="#568d84" strokeWidth="4" strokeLinejoin="round"/>
+            <path d="M0 440 115 300 180 350 322 145 455 335 560 220 692 366 818 190 972 356 1095 245 1240 363 1360 285 1440 344V620H0Z" fill="url(#storyFarMountain)" stroke="#568d84" strokeWidth="4" strokeLinejoin="round"/><path d="m0 440 115-140 65 50 142-205 133 190 105-115 132 146 126-176 154 166 123-111 145 118 120-78 80 59-125-19-85-43-121 31-112-21-106 41-111-19-96 33-94-15-111 31-87-6-111 41Z" fill="#eaf6ff" opacity=".46"/><path d="m275 194 47-49 45 65-39-18-22 11-14-15-16 13ZM772 239l46-49 47 55-37-12-21 12-18-11-17 10ZM1055 279l40-34 44 52-35-14-20 12-13-11-16 8Z" fill="#f5fbff" opacity=".92"/>
             <path d="m220 248 102-103 78 111-51-25-30 12-24-25-25 22Z" fill="#e9f4e6" opacity=".9"/>
             <path d="m720 293 98-103 93 109-50-20-34 15-29-25-29 21Z" fill="#e8f2e5" opacity=".85"/>
-            <path d="M0 490 145 377 250 424 400 294 540 445 670 345 800 455 940 327 1070 444 1190 362 1320 435 1440 390V620H0Z" fill="url(#storyNearMountain)" stroke="#397963" strokeWidth="4" strokeLinejoin="round"/>
-            <path d="M0 514Q190 464 365 504T735 493T1100 494T1440 474V620H0Z" fill="#477d5c"/>
+            <path d="M0 490 145 377 250 424 400 294 540 445 670 345 800 455 940 327 1070 444 1190 362 1320 435 1440 390V620H0Z" fill="url(#storyNearMountain)" stroke="#397963" strokeWidth="4" strokeLinejoin="round"/><path d="m365 329 35-35 47 50-35-17-22 12-25-10ZM632 383l38-38 42 49-33-15-21 12-26-8ZM902 366l38-39 47 53-37-17-23 10-25-7Z" fill="#d9f1e8" opacity=".82"/><path d="M0 493 145 377 205 403 145 396 76 455 0 515ZM540 445l130-100 74 85-80-48-63 35-61 28ZM1070 444l120-82 79 73-78-45-51 26-70 28Z" fill="#183f47" opacity=".25"/>
+            <path d="M0 514Q190 464 365 504T735 493T1100 494T1440 474V620H0Z" fill="#477d5c"/><path d="M0 515Q165 493 295 518T590 528Q745 514 855 531T1150 513T1440 496V620H0Z" fill="url(#storyLake)" opacity=".76"/><path d="M80 550Q260 528 402 549T690 549" fill="none" stroke="#d9f5ff" strokeWidth="3" opacity=".5"/><path d="M40 574Q240 555 365 574M510 560q88-11 154 0" fill="none" stroke="#c8f2ff" strokeWidth="2" opacity=".3"/>
           </g>
           <g className="storyPlateauLand">
-            <path d="M560 510Q690 466 820 488T1050 465Q1230 454 1440 492V620H490Q540 568 560 510Z" fill="url(#storyPlateau)" stroke="#356c4c" strokeWidth="4"/>
+            <path d="M560 510Q690 466 820 488T1050 465Q1230 454 1440 492V620H490Q540 568 560 510Z" fill="url(#storyPlateau)" stroke="#356c4c" strokeWidth="4"/><path d="M525 575Q680 533 842 548T1160 529T1440 542V620H500Z" fill="#254f43" opacity=".3"/><g className="storyPines" fill="#244d43" stroke="#173b35" strokeWidth="2"><path d="m1250 503 28-83 28 83h-18l25 30h-70l25-30Z"/><path d="m1310 522 20-61 22 61h-14l20 22h-54l20-22Z"/><path d="m1370 513 25-75 26 75h-16l22 26h-62l22-26Z"/></g>
             <path d="M575 525Q780 488 950 511T1440 516" fill="none" stroke="#b5d69a" strokeWidth="4" strokeLinecap="round" opacity=".7"/>
             <g className="storyGrass" stroke="#d4e8a7" strokeWidth="3" strokeLinecap="round"><path d="m650 570 5-13m-5 13-8-8M720 594l2-14m0 14 9-9M1320 557l5-13m-5 13-8-8M1400 590l3-12"/></g>
           </g>
@@ -359,8 +354,8 @@ export default function Home() {
           </g>
           <g className="storyCamp">
             <g className="storyTent">
-              <path d="M1010 548 1113 385 1215 548Z" fill="#f3d69c" stroke="#604c39" strokeWidth="5" strokeLinejoin="round"/>
-              <path d="M1113 385 1113 548H1215Z" fill="#c99861" stroke="#604c39" strokeWidth="4" strokeLinejoin="round"/>
+              <path d="M1010 548 1113 385 1215 548Z" fill="url(#storyTentCanvas)" stroke="#604c39" strokeWidth="5" strokeLinejoin="round"/><path d="M1113 385 1102 548 1010 548Z" fill="#fff1c7" opacity=".42"/><path d="M1017 543 1113 397 1208 543" fill="none" stroke="#fff4d7" strokeWidth="2" opacity=".8"/><path d="M1040 515 1080 449" stroke="#cfa06b" strokeWidth="2" opacity=".8"/>
+              <path d="M1113 385 1113 548H1215Z" fill="url(#storyTentWarm)" stroke="#604c39" strokeWidth="4" strokeLinejoin="round"/><path d="M1118 407 1204 539H1118Z" fill="#f9a34b" opacity=".12"/>
               <path d="M1081 548 1113 472 1148 548Z" fill="#3b463f" stroke="#604c39" strokeWidth="3" strokeLinejoin="round" className="storyTentDoor"/>
               <path d="M1010 548 1113 385 1215 548" fill="none" stroke="#fff0c6" strokeWidth="3" strokeLinecap="round"/>
               <path d="M1100 548 1113 472 1127 548Z" fill="#172332" className="storySleeperShadow"/>
@@ -391,7 +386,7 @@ export default function Home() {
               <path d="M886 540h19" stroke="#ffe68b" strokeWidth="2" opacity=".85"/>
             </g>
             <g className="storyFire">
-              <ellipse cx="978" cy="571" rx="86" ry="61" fill="url(#storyFireGlow)" className="storyFireLight"/>
+              <ellipse cx="978" cy="571" rx="104" ry="75" fill="url(#storyFireGlow)" className="storyFireLight"/><ellipse cx="978" cy="584" rx="57" ry="15" fill="#ffb95b" opacity=".2"/>
               <path d="M948 580q-18-23 1-44 0 17 13 22-4-31 21-50 0 26 12 37 13 14-1 35Z" fill="#ff7a2f" stroke="#d94e25" strokeWidth="3" className="storyFlame storyFlameA"/>
               <path d="M963 580q-7-17 7-29 1 12 9 15 9 6 2 14Z" fill="#ffe27b" className="storyFlame storyFlameB"/>
               <path d="m943 585 57-13m-49-4 45 19" stroke="#644438" strokeWidth="8" strokeLinecap="round"/>

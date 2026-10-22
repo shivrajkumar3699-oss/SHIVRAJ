@@ -861,3 +861,56 @@ footer{border-color:rgba(72,109,78,.2);color:#789078}
 @media (max-width: 640px){
   .storySunDisc{r:53px}
 }
+
+
+/* Cinematic campsite finish — richer painted depth, luminous skies and gentle motion. */
+.storyLandscape{height:100%;inset:0 0 0;width:100%;overflow:hidden;filter:saturate(1.12) contrast(1.035)}
+.storyDayLayer,.storyNightLayer{transition:opacity 1.4s cubic-bezier(.2,.7,.2,1)}
+.theme-day .storyDayLayer{opacity:1}
+.theme-day .storyNightLayer{opacity:0}
+.theme-day .storySunDisc{fill:#fff0a1;stroke:#ffcf57;stroke-width:4;filter:drop-shadow(0 0 18px rgba(255,224,112,.92))}
+.theme-day .storySunHalo{opacity:.46;filter:blur(5px)}
+.storySunRays{transform-origin:1130px 110px;animation:storyRayTurn 60s linear infinite}
+.storyDayClouds{animation:storyCloudDrift 72s ease-in-out infinite alternate}
+.storyMilkyWay{animation:storyMilkyDrift 28s ease-in-out infinite alternate}
+.storyMoonAura{filter:blur(2px);opacity:.88}
+.storyMoonDisc{filter:drop-shadow(0 0 18px rgba(168,199,255,.72));stroke:#dbe8ff;stroke-width:2}
+.storyNightLayer .storyStar{animation:storyTwinkle calc(1.7s + (var(--i)%5)*.7s) ease-in-out infinite alternate;animation-delay:calc((var(--i)%9)*-.4s)}
+.storyMountains{transform-origin:center bottom}
+.storyPines{filter:drop-shadow(0 5px 4px rgba(15,48,37,.25))}
+.storyTent{filter:drop-shadow(0 14px 16px rgba(15,28,25,.24))}
+.storyFireLight{filter:blur(2px)}
+.storyFire .storyEmber{filter:drop-shadow(0 0 5px #ffb54e)}
+.storyDayBird{filter:drop-shadow(0 3px 3px rgba(24,66,100,.18))}
+.storyOwl{filter:drop-shadow(0 4px 8px rgba(0,0,0,.45));transform-box:fill-box;transform-origin:center;animation:storyOwlFloat 4.5s ease-in-out infinite alternate}
+.storyOwlTwo{animation-delay:-2.1s}
+.theme-night .storyMountains{filter:brightness(.42) saturate(.82) hue-rotate(12deg)}
+.theme-night .storyPlateauLand{filter:brightness(.43) saturate(.9) hue-rotate(8deg)}
+.theme-night .storyPines{filter:brightness(.45) drop-shadow(0 5px 6px rgba(0,0,0,.5))}
+.theme-night .storyTent{filter:brightness(.78) drop-shadow(0 12px 20px rgba(0,0,0,.4))}
+.theme-night .storyFireLight{filter:blur(4px);opacity:.92}
+.theme-night .storyTentDoor{fill:#251b19}
+.theme-night .storyCamper{opacity:0}
+.theme-day .storyCamper{opacity:1}
+.theme-day .storySleeperShadow,.theme-day .storySleeperHead,.theme-day .storySleeperBody,.theme-day .storySleeperLegs,.theme-day .storyZzz{opacity:0}
+.theme-night .storySleeperShadow,.theme-night .storySleeperHead,.theme-night .storySleeperBody,.theme-night .storySleeperLegs,.theme-night .storyZzz{opacity:1}
+.theme-day .storyAshes{opacity:1}
+.theme-night .storyAshes{opacity:0}
+.theme-night .storyFire{opacity:1}
+.theme-day .storyFire{opacity:0}
+.themeToggle{left:clamp(18px,2.5vw,36px);right:auto;top:clamp(18px,2.5vw,30px);background:rgba(237,248,255,.72);border-color:rgba(255,255,255,.7);box-shadow:0 10px 36px rgba(20,73,121,.18),0 0 0 1px rgba(255,255,255,.18) inset}
+.themeToggle.isNight{background:rgba(9,20,47,.76);color:#eaf0ff;border-color:rgba(192,211,255,.45);box-shadow:0 12px 38px rgba(0,0,0,.3),0 0 28px rgba(113,151,255,.14)}
+.audioButton{top:clamp(18px,2.5vw,30px);bottom:auto;right:clamp(18px,2.5vw,30px);width:58px;height:58px;background:rgba(234,245,255,.72);border-color:rgba(255,255,255,.7);box-shadow:0 10px 36px rgba(20,73,121,.2),0 0 0 1px rgba(255,255,255,.22) inset}
+.theme-night .audioButton{background:rgba(10,21,48,.74);border-color:rgba(199,216,255,.55);box-shadow:0 12px 40px rgba(0,0,0,.4),0 0 25px rgba(135,169,255,.18)}
+.themeToggle,.audioButton{backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3)}
+@keyframes storyRayTurn{to{transform:rotate(360deg)}}
+@keyframes storyCloudDrift{from{transform:translateX(-8px)}to{transform:translateX(18px)}}
+@keyframes storyMilkyDrift{from{opacity:.12;transform:translateX(-7px)}to{opacity:.3;transform:translateX(9px)}}
+@keyframes storyOwlFloat{from{translate:0 -3px}to{translate:0 5px}}
+@media(max-width:700px){
+ .storyLandscape{height:84%;min-height:440px;inset:auto 0 0}
+ .themeToggle{left:10px!important;right:auto!important;top:12px;gap:7px;padding:7px 10px 7px 7px;font-size:10px}
+ .audioButton{top:12px;right:12px;bottom:auto;width:48px;height:48px}
+ .storySunDisc{r:51px}
+}
+@media(prefers-reduced-motion:reduce){.storySunRays,.storyDayClouds,.storyMilkyWay,.storyOwl{animation:none!important}}
