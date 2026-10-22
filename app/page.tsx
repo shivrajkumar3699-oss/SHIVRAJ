@@ -375,7 +375,7 @@ export default function Home() {
                 <path d="M1096 529q-6 7-3 13m34-13q8 5 8 13" fill="none" stroke="#252a36" strokeWidth="5" strokeLinecap="round"/>
               </g>
               <g className="storyZzz" aria-hidden="true"><text x="1122" y="531">Z</text><text x="1142" y="503">z</text><text x="1161" y="476">z</text></g>
-            </g>g>
+            </g>
             <g className="storyCamper">
               {/* Ground contact and long soft cast shadow from the firelight at the camper's right. */}
               <ellipse cx="820" cy="573" rx="102" ry="13" fill="#102b25" opacity=".48" className="storyCamperCastShadow"/>
