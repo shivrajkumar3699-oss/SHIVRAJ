@@ -76,18 +76,9 @@ export default function Home() {
 
     try {
       a.muted = false;
-      a.volume = 0;
+      a.volume = 0.32;
+      a.loop = true;
       await a.play();
-
-      const startedAt = performance.now();
-      const fadeIn = (now: number) => {
-        const progress = Math.min((now - startedAt) / 1800, 1);
-        a.volume = 0.32 * progress;
-        if (progress < 1) {
-          requestAnimationFrame(fadeIn);
-        }
-      };
-      requestAnimationFrame(fadeIn);
 
       setMuted(false);
       sessionStorage.setItem("shivraj-portfolio-muted", "false");
@@ -320,7 +311,7 @@ export default function Home() {
             <rect width="1440" height="620" fill="url(#storyDaySky)"/>
             <circle cx="1130" cy="110" r="105" fill="#fff4ba" opacity=".24" className="storySunHalo"/>
             <circle cx="1130" cy="110" r="48" fill="#ffe17b" stroke="#f8c957" strokeWidth="3" className="storySunDisc"/>
-            <g className="storyDayClouds" fill="#fff7e8" opacity=".76"><path d="M-40 171c-7-30 17-51 46-45 15-37 67-43 91-7 36-8 62 20 48 52H-40Z"/><path d="M120 154c-5-22 12-39 34-36 10-29 53-33 70-5 30-6 48 21 36 43H120Z"/><path d="M420 95c-4-17 10-31 28-28 9-24 42-27 56-4 24-5 39 17 29 32H420Z"/><path d="M1110 218c-6-23 12-39 35-35 11-29 51-32 68-5 30-6 48 20 37 40H1110Z" opacity=".52"/></g><g className="storySunRays" transform="translate(1130 110)" stroke="#fff1ad" strokeWidth="4" strokeLinecap="round" opacity=".78">{Array.from({length:12},(_,i)=><path key={i} d="M0-68V-82" transform={`rotate(${i*30})`}/>)}</g>
+            <g className="storyDayClouds" fill="#fff7e8" opacity=".76"><path d="M-40 171c-7-30 17-51 46-45 15-37 67-43 91-7 36-8 62 20 48 52H-40Z"/><path d="M120 154c-5-22 12-39 34-36 10-29 53-33 70-5 30-6 48 21 36 43H120Z"/><path d="M420 95c-4-17 10-31 28-28 9-24 42-27 56-4 24-5 39 17 29 32H420Z"/><path d="M1110 218c-6-23 12-39 35-35 11-29 51-32 68-5 30-6 48 20 37 40H1110Z" opacity=".52"/></g><g className="storySunRays" transform="translate(1130 110)" stroke="#fff1ad" strokeWidth="4" strokeLinecap="round" opacity=".78">{Array.from({length:12},(_,i)=><path key={i} d="M0-54V-64" transform={`rotate(${i*30})`}/>)}</g>
           </g>
           <g className="storyNightLayer">
             <rect width="1440" height="620" fill="url(#storyNightSky)"/>
@@ -379,43 +370,33 @@ export default function Home() {
               </g>
               <g className="storyZzz" aria-hidden="true"><text x="1121" y="511">Z</text><text x="1140" y="488">z</text><text x="1157" y="466">z</text></g>
             </g>
+
             <g className="storyCamper">
-              {/* Ground contact shadow keeps the standing hiker anchored to the landscape. */}
-              <ellipse cx="815" cy="573" rx="49" ry="8" fill="#102b25" opacity=".5" className="storyCamperCastShadow"/>
-              {/* Natural standing stance in tapered, slightly baggy mustard cargo trousers. */}
-              <path d="M791 476 831 476 835 514 828 548 827 568 808 568 805 531 798 568 778 568 782 531 780 505Z" fill="#8b682b" stroke="#5d4928" strokeWidth="3.5" strokeLinejoin="round"/>
-              <path d="M792 490 805 495 800 527M824 491 815 506 820 532" fill="none" stroke="#b38a43" strokeWidth="3" strokeLinecap="round"/>
-              <path d="M783 507 799 511 798 523 782 519ZM818 505 833 502 833 517 818 520Z" fill="#765625" stroke="#594522" strokeWidth="2.5" strokeLinejoin="round"/>
-              <path d="M783 567 805 567 806 575 775 575Q770 572 776 569Z" fill="#252b2a" stroke="#151c1b" strokeWidth="2.5" strokeLinejoin="round"/>
-              <path d="M808 567 827 567 840 574Q843 578 835 578L807 576Z" fill="#252b2a" stroke="#151c1b" strokeWidth="2.5" strokeLinejoin="round"/>
-              <path d="M794 477 794 486M826 477 826 486" stroke="#d0aa5e" strokeWidth="2" strokeLinecap="round"/>
-              {/* White tee with a thin black centre stripe, realistic sleeve cuffs and soft folds. */}
-              <path d="M789 405Q797 396 807 397L823 397Q834 400 839 412L831 434 831 480Q811 491 786 480L787 436 778 418Q781 409 789 405Z" fill="#f1eee6" stroke="#aaa9a2" strokeWidth="3.2" strokeLinejoin="round"/>
-              <path d="M812 400 812 482" stroke="#202322" strokeWidth="3.2" strokeLinecap="round"/>
-              <path d="M789 412 798 427M834 412 825 428M792 450l10 6M824 455l7-5M798 477l9-3" fill="none" stroke="#c5c3bc" strokeWidth="2.4" strokeLinecap="round"/>
-              <path d="M781 416 770 435 778 442 790 426Z" fill="#e8e5dd" stroke="#aaa9a2" strokeWidth="2.5" strokeLinejoin="round"/>
-              <path d="M832 414 844 430 836 439 826 425Z" fill="#e8e5dd" stroke="#aaa9a2" strokeWidth="2.5" strokeLinejoin="round"/>
-              {/* Left arm clearly points toward the birds; wristwatch has a classic sci-fi dial. */}
-              <path d="M779 429 762 414 746 394" fill="none" stroke="#c98e68" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M746 394 732 379" fill="none" stroke="#c98e68" strokeWidth="9" strokeLinecap="round"/>
-              <path d="M734 380 728 371 737 375 741 383" fill="#c98e68" stroke="#875b43" strokeWidth="1.8" strokeLinejoin="round"/>
-              <path d="M756 407 766 414" stroke="#dba780" strokeWidth="3" strokeLinecap="round"/>
-              <g className="storyOmniWatch" transform="translate(754 405) rotate(-34)">
-                <rect x="-4" y="-9" width="8" height="19" rx="3" fill="#344b32"/>
-                <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#202d25" stroke="#6f8a4a" strokeWidth="2"/>
-                <circle r="4.4" fill="#a5e34c" stroke="#d5f58c" strokeWidth="1.3"/>
-                <circle r="1.8" fill="#eaffbd"/>
+              <ellipse cx="815" cy="573" rx="48" ry="8" fill="#102b25" opacity=".48" className="storyCamperCastShadow"/>
+              <path d="M792 475 832 475 835 516 830 568 811 568 808 526 803 568 783 568 784 523 781 495Z" fill="#8eb9d8" stroke="#527b9a" strokeWidth="3.2" strokeLinejoin="round"/>
+              <path d="M812 482 811 523M827 483 824 526M792 486 795 523" fill="none" stroke="#c6e0f1" strokeWidth="2.4" strokeLinecap="round" opacity=".85"/>
+              <path d="M783 568 803 568 805 576 776 576Q771 573 776 570Z" fill="#28312f" stroke="#161e1c" strokeWidth="2.5" strokeLinejoin="round"/>
+              <path d="M811 568 830 568 840 574Q843 578 835 578L809 576Z" fill="#28312f" stroke="#161e1c" strokeWidth="2.5" strokeLinejoin="round"/>
+              <path d="M789 405Q798 397 807 397L823 397Q833 400 839 411L832 432 831 480Q811 490 786 480L787 433 778 417Q781 409 789 405Z" fill="#f7f6f1" stroke="#b7b8b2" strokeWidth="3.1" strokeLinejoin="round"/>
+              <path d="M812 400 812 482" stroke="#242625" strokeWidth="2.8" strokeLinecap="round"/>
+              <path d="M789 412 798 427M834 412 825 428M792 451l10 6M824 455l7-5M798 477l9-3" fill="none" stroke="#d0d0c9" strokeWidth="2.2" strokeLinecap="round"/>
+              <path d="M781 414 770 433 778 441 790 425Z" fill="#f0efe9" stroke="#b7b8b2" strokeWidth="2.4" strokeLinejoin="round"/>
+              <path d="M832 413 844 430 836 438 826 425Z" fill="#f0efe9" stroke="#b7b8b2" strokeWidth="2.4" strokeLinejoin="round"/>
+              <path d="M774 428 778 434 785 429M833 428 838 433 842 428" fill="none" stroke="#c2c2bb" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M780 430 767 447 785 455 799 444" fill="none" stroke="#c98e68" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M785 455 797 449" fill="none" stroke="#c98e68" strokeWidth="9" strokeLinecap="round"/>
+              <path d="M834 430 848 447 831 456 819 448" fill="none" stroke="#c98e68" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M831 456 819 450" fill="none" stroke="#c98e68" strokeWidth="9" strokeLinecap="round"/>
+              <path d="M791 440q-2 5 3 8M826 440q3 5-2 8" fill="none" stroke="#e7b58f" strokeWidth="2.5" strokeLinecap="round"/>
+              <g className="storyOmniWatch" transform="translate(787 453) rotate(-18)">
+                <rect x="-4" y="-8" width="8" height="16" rx="3" fill="#344b32"/>
+                <rect x="-6.5" y="-6.5" width="13" height="13" rx="4" fill="#202d25" stroke="#6f8a4a" strokeWidth="1.8"/>
+                <circle r="4.1" fill="#a5e34c" stroke="#d5f58c" strokeWidth="1.2"/>
+                <circle r="1.6" fill="#eaffbd"/>
               </g>
-              {/* Right arm bends naturally with hand resting on the waist. */}
-              <path d="M835 426 849 445 832 457" fill="none" stroke="#c98e68" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M832 457 820 451" fill="none" stroke="#c98e68" strokeWidth="9" strokeLinecap="round"/>
-              <path d="M819 451 814 445" fill="none" stroke="#dba780" strokeWidth="3" strokeLinecap="round"/>
-              {/* Head turned slightly toward the birds, with layered dark hair and neck. */}
               <path d="M795 393 793 379Q795 363 811 363 827 364 829 380L824 395 814 391 807 397Z" fill="#30231f" stroke="#1b1917" strokeWidth="3" strokeLinejoin="round"/>
               <ellipse cx="811" cy="384" rx="14" ry="17" fill="#c98e68" stroke="#875b43" strokeWidth="2.2"/>
               <path d="M797 380Q797 365 811 365 823 365 828 377L822 381 817 376 809 381 803 377 798 387Z" fill="#30231f"/>
-              <path d="M800 387q4 4 8 3" fill="none" stroke="#e3b08a" strokeWidth="2" strokeLinecap="round"/>
-              {/* Lime daypack placed on the ground beside him, not worn on his back. */}
               <g className="storyLimeBag">
                 <ellipse cx="864" cy="572" rx="28" ry="5" fill="#142b24" opacity=".4"/>
                 <path d="M844 535Q844 529 851 527L874 527Q881 530 882 539L884 565Q883 570 877 571L850 571Q844 569 844 563Z" fill="#b5d934" stroke="#5d7620" strokeWidth="3" strokeLinejoin="round"/>
