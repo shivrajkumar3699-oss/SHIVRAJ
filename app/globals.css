@@ -996,3 +996,22 @@ footer{border-color:rgba(72,109,78,.2);color:#789078}
     width:52px;height:52px;
   }
 }
+
+
+/* Keep the sun and its rays locked together; only glow may breathe in place. */
+.storySunRays{
+  animation:none!important;
+  transform:none!important;
+  transform-origin:initial!important;
+}
+.storySunRays path{
+  transform:none!important;
+}
+.storySunDisc{
+  animation:storySunPulse 5s ease-in-out infinite alternate!important;
+  transform:none!important;
+}
+.storySunHalo{
+  animation:storyHaloBreathe 6s ease-in-out infinite alternate!important;
+  transform:none!important;
+}
