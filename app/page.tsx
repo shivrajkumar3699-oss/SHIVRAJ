@@ -26,7 +26,17 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [entered, setEntered] = useState(false);
   const [muted, setMuted] = useState(false);
+  const [nightMode, setNightMode] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("shivraj-portfolio-theme");
+    if (savedTheme === "night") setNightMode(true);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("shivraj-portfolio-theme", nightMode ? "night" : "day");
+  }, [nightMode]);
 
   useEffect(() => {
     const savedMuted = sessionStorage.getItem("shivraj-portfolio-muted") === "true";
@@ -163,7 +173,7 @@ export default function Home() {
   const particles = Array.from({ length: 52 }, (_, i) => i);
 
   return (
-    <main className={entered ? "siteEntered" : ""}>
+    <main className={`${entered ? "siteEntered" : ""} ${nightMode ? "theme-night" : "theme-day"}`}>
       <audio
         ref={audioRef}
         src="/melody.mp3"
@@ -241,6 +251,27 @@ export default function Home() {
         <span className="audioButtonAura" aria-hidden="true" />
       </button>
 
+
+      <button
+        className={nightMode ? "themeToggle isNight" : "themeToggle"}
+        type="button"
+        onClick={() => setNightMode((current) => !current)}
+        aria-label={nightMode ? "Switch to day mode" : "Switch to night mode"}
+        aria-pressed={nightMode}
+        title={nightMode ? "Switch to day mode" : "Switch to night mode"}
+      >
+        <span className="themeToggleTrack" aria-hidden="true">
+          <span className="themeToggleSun">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" /><path d="M12 1.8v2.1M12 20.1v2.1M4.78 4.78l1.48 1.48m11.48 11.48 1.48 1.48M1.8 12h2.1m16.2 0h2.1M4.78 19.22l1.48-1.48M17.74 6.26l1.48-1.48" /></svg>
+          </span>
+          <span className="themeToggleMoon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M20.5 15.1A8.8 8.8 0 0 1 8.9 3.5 8.9 8.9 0 1 0 20.5 15.1Z" /></svg>
+          </span>
+          <span className="themeToggleKnob" />
+        </span>
+        <span className="themeToggleLabel">{nightMode ? "Night" : "Day"}</span>
+      </button>
+
       <div className="noise" />
       <div className="ambientParticles">
         {particles.map((i) => (
@@ -274,6 +305,92 @@ export default function Home() {
           <div className="dreamHeroField" />
           <div className="dreamHeroGlow" />
         </div>
+
+        <svg className="storyLandscape" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice" role="img" aria-label={nightMode ? "A moonlit mountain campsite with flying owls" : "A sunny hand-drawn mountain landscape with birds and a camper"}>
+          <defs>
+            <linearGradient id="storyDaySky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#91cfe5"/><stop offset="62%" stopColor="#d9eddb"/><stop offset="100%" stopColor="#f5dca4"/></linearGradient>
+            <linearGradient id="storyNightSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#07152d"/><stop offset="58%" stopColor="#111d3d"/><stop offset="100%" stopColor="#283d50"/></linearGradient>
+            <linearGradient id="storyFarMountain" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#a9d2c5"/><stop offset="100%" stopColor="#6b9d9a"/></linearGradient>
+            <linearGradient id="storyNearMountain" x1="0" y1="0" x2="0.8" y2="1"><stop offset="0%" stopColor="#5b9c85"/><stop offset="100%" stopColor="#306b5a"/></linearGradient>
+            <linearGradient id="storyPlateau" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#8ab77c"/><stop offset="100%" stopColor="#4f885d"/></linearGradient>
+            <radialGradient id="storyMoonGlow"><stop offset="0%" stopColor="#fffdf0" stopOpacity=".9"/><stop offset="45%" stopColor="#d8e8ff" stopOpacity=".25"/><stop offset="100%" stopColor="#a8c7ff" stopOpacity="0"/></radialGradient>
+            <radialGradient id="storyFireGlow"><stop offset="0%" stopColor="#ffb34f" stopOpacity=".75"/><stop offset="100%" stopColor="#ff782f" stopOpacity="0"/></radialGradient>
+          </defs>
+          <g className="storyDayLayer">
+            <rect width="1440" height="620" fill="url(#storyDaySky)"/>
+            <circle cx="1130" cy="110" r="105" fill="#fff4ba" opacity=".24" className="storySunHalo"/>
+            <circle cx="1130" cy="110" r="48" fill="#ffe17b" stroke="#f8c957" strokeWidth="3" className="storySunDisc"/>
+            <g fill="#fff7df" opacity=".68">
+              <path d="M120 154c-5-22 12-39 34-36 10-29 53-33 70-5 30-6 48 21 36 43H120Z"/>
+              <path d="M420 95c-4-17 10-31 28-28 9-24 42-27 56-4 24-5 39 17 29 32H420Z"/>
+            </g>
+          </g>
+          <g className="storyNightLayer">
+            <rect width="1440" height="620" fill="url(#storyNightSky)"/>
+            <circle cx="1128" cy="112" r="150" fill="url(#storyMoonGlow)" className="storyMoonAura"/>
+            <circle cx="1128" cy="112" r="53" fill="#f3f5ff" className="storyMoonDisc"/>
+            <g fill="#d0d8ee" opacity=".26">
+              <circle cx="1110" cy="91" r="8"/><circle cx="1144" cy="124" r="12"/><circle cx="1139" cy="82" r="5"/><circle cx="1097" cy="127" r="4"/><circle cx="1161" cy="101" r="6"/>
+            </g>
+            {Array.from({length: 64}, (_, i) => (
+              <circle key={i} className="storyStar" cx={(i * 197 + 43) % 1430 + 5} cy={(i * 71 + 19) % 290 + 8} r={i % 7 === 0 ? 2.1 : 1.15} style={{ "--i": i } as React.CSSProperties} />
+            ))}
+          </g>
+          <g className="storyMountains">
+            <path d="M0 440 115 300 180 350 322 145 455 335 560 220 692 366 818 190 972 356 1095 245 1240 363 1360 285 1440 344V620H0Z" fill="url(#storyFarMountain)" stroke="#568d84" strokeWidth="4" strokeLinejoin="round"/>
+            <path d="m220 248 102-103 78 111-51-25-30 12-24-25-25 22Z" fill="#e9f4e6" opacity=".9"/>
+            <path d="m720 293 98-103 93 109-50-20-34 15-29-25-29 21Z" fill="#e8f2e5" opacity=".85"/>
+            <path d="M0 490 145 377 250 424 400 294 540 445 670 345 800 455 940 327 1070 444 1190 362 1320 435 1440 390V620H0Z" fill="url(#storyNearMountain)" stroke="#397963" strokeWidth="4" strokeLinejoin="round"/>
+            <path d="M0 514Q190 464 365 504T735 493T1100 494T1440 474V620H0Z" fill="#477d5c"/>
+          </g>
+          <g className="storyPlateauLand">
+            <path d="M560 510Q690 466 820 488T1050 465Q1230 454 1440 492V620H490Q540 568 560 510Z" fill="url(#storyPlateau)" stroke="#356c4c" strokeWidth="4"/>
+            <path d="M575 525Q780 488 950 511T1440 516" fill="none" stroke="#b5d69a" strokeWidth="4" strokeLinecap="round" opacity=".7"/>
+            <g className="storyGrass" stroke="#d4e8a7" strokeWidth="3" strokeLinecap="round"><path d="m650 570 5-13m-5 13-8-8M720 594l2-14m0 14 9-9M1320 557l5-13m-5 13-8-8M1400 590l3-12"/></g>
+          </g>
+          <g className="storyBirds">
+            <g className="storyDayBird storyBirdOne" transform="translate(390 205)"><path d="M0 0 31-19 22-2 48-5 23 8 13 3 0 0Z" fill="#df514f" stroke="#7e373c" strokeWidth="3" strokeLinejoin="round"/><path d="m22-2 9-17 5 16" fill="#f68a78" stroke="#7e373c" strokeWidth="2"/></g>
+            <g className="storyDayBird storyBirdTwo" transform="translate(480 160) scale(.8)"><path d="M0 0 31-19 22-2 48-5 23 8 13 3 0 0Z" fill="#3279ce" stroke="#244e87" strokeWidth="3" strokeLinejoin="round"/><path d="m22-2 9-17 5 16" fill="#77c3f0" stroke="#244e87" strokeWidth="2"/></g>
+            <g className="storyDayBird storyBirdThree" transform="translate(545 224) scale(.65)"><path d="M0 0 31-19 22-2 48-5 23 8 13 3 0 0Z" fill="#e9a73b" stroke="#946226" strokeWidth="3" strokeLinejoin="round"/><path d="m22-2 9-17 5 16" fill="#ffe07a" stroke="#946226" strokeWidth="2"/></g>
+            <g className="storyOwls">
+              <g className="storyOwl storyOwlOne" transform="translate(380 188)"><path d="M-18-11-23-27-7-19Q0-23 7-19L23-27 18-9Q29 7 17 21Q0 34-17 21Q-29 7-18-11Z" fill="#66506c" stroke="#1c1934" strokeWidth="3"/><ellipse cx="-9" cy="2" rx="7" ry="8" fill="#f58d39"/><ellipse cx="9" cy="2" rx="7" ry="8" fill="#f58d39"/><circle cx="-9" cy="2" r="3.8" fill="#080b17"/><circle cx="9" cy="2" r="3.8" fill="#080b17"/><path d="m-4 12 4 5 4-5" fill="#f3b55b"/></g>
+              <g className="storyOwl storyOwlTwo" transform="translate(485 145) scale(.72)"><path d="M-18-11-23-27-7-19Q0-23 7-19L23-27 18-9Q29 7 17 21Q0 34-17 21Q-29 7-18-11Z" fill="#4d627f" stroke="#1c1934" strokeWidth="3"/><ellipse cx="-9" cy="2" rx="7" ry="8" fill="#ff9a36"/><ellipse cx="9" cy="2" rx="7" ry="8" fill="#ff9a36"/><circle cx="-9" cy="2" r="3.8" fill="#080b17"/><circle cx="9" cy="2" r="3.8" fill="#080b17"/><path d="m-4 12 4 5 4-5" fill="#f3b55b"/></g>
+            </g>
+          </g>
+          <g className="storyCamp">
+            <g className="storyTent">
+              <path d="M1010 548 1113 385 1215 548Z" fill="#f3d69c" stroke="#604c39" strokeWidth="5" strokeLinejoin="round"/>
+              <path d="M1113 385 1113 548H1215Z" fill="#c99861" stroke="#604c39" strokeWidth="4" strokeLinejoin="round"/>
+              <path d="M1081 548 1113 472 1148 548Z" fill="#3b463f" stroke="#604c39" strokeWidth="3" strokeLinejoin="round" className="storyTentDoor"/>
+              <path d="M1010 548 1113 385 1215 548" fill="none" stroke="#fff0c6" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M1100 548 1113 472 1127 548Z" fill="#172332" className="storySleeperShadow"/>
+              <circle cx="1114" cy="495" r="8" fill="#111a28" className="storySleeperHead"/>
+              <path d="M1111 503q-22 7-17 24l32 0q4-18-15-24Z" fill="#111a28" className="storySleeperBody"/>
+              <path d="M1097 525q-10 7-7 16m35-16q12 5 9 16" fill="none" stroke="#111a28" strokeWidth="5" strokeLinecap="round" className="storySleeperLegs"/>
+              <g className="storyZzz"><text x="1143" y="461">z</text><text x="1159" y="436">z</text><text x="1176" y="409">z</text></g>
+            </g>
+            <g className="storyCamper">
+              <path d="M820 550 845 510 869 550Z" fill="#303d3b"/>
+              <path d="M838 530q-18-15-28-35l-18-7q-8-2-9 6t12 9l18 15" fill="none" stroke="#253a36" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="843" cy="501" r="17" fill="#d8a16f" stroke="#5b483c" strokeWidth="3"/>
+              <path d="M828 490q8-19 27-7l6 12-15-5-8 5Z" fill="#3a302b"/>
+              <path d="M827 520q16-12 31 2l12 28h-47Z" fill="#d6b74d" stroke="#675a32" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="M836 546q-28 3-45 17l-24 0q-9 0-8 7t12 7l38-1 42-16" fill="#243a35" stroke="#243a35" strokeWidth="8" strokeLinecap="round"/>
+              <path d="M855 546q23 7 35 19l-3 8-35-8-19-13" fill="#243a35" stroke="#243a35" strokeWidth="7" strokeLinecap="round"/>
+              <path d="M815 520 799 514" stroke="#d8a16f" strokeWidth="8" strokeLinecap="round"/>
+              <rect x="864" y="526" width="25" height="30" rx="5" fill="#e6bd26" stroke="#856a21" strokeWidth="3" className="storyYellowBag"/>
+              <path d="M870 527q6-12 13 0" fill="none" stroke="#856a21" strokeWidth="3"/>
+            </g>
+            <g className="storyFire">
+              <ellipse cx="978" cy="571" rx="86" ry="61" fill="url(#storyFireGlow)" className="storyFireLight"/>
+              <path d="M948 580q-18-23 1-44 0 17 13 22-4-31 21-50 0 26 12 37 13 14-1 35Z" fill="#ff7a2f" stroke="#d94e25" strokeWidth="3" className="storyFlame storyFlameA"/>
+              <path d="M963 580q-7-17 7-29 1 12 9 15 9 6 2 14Z" fill="#ffe27b" className="storyFlame storyFlameB"/>
+              <path d="m943 585 57-13m-49-4 45 19" stroke="#644438" strokeWidth="8" strokeLinecap="round"/>
+              <circle cx="950" cy="548" r="3" fill="#ffcf6c" className="storyEmber"/><circle cx="1000" cy="535" r="2.5" fill="#ffcf6c" className="storyEmber storyEmberTwo"/>
+            </g>
+          </g>
+        </svg>
+
         <div className="orb orbOne" />
         <div className="orb orbTwo" />
         <div className="heroGrid" />
