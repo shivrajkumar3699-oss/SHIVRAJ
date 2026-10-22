@@ -369,49 +369,62 @@ export default function Home() {
               <path d="M1002 550 987 556M1225 550l15 6" stroke="#766044" strokeWidth="3" strokeLinecap="round"/>
               <path d="M1110 390 1116 390" stroke="#fff9e5" strokeWidth="4" strokeLinecap="round"/>
               <g className="storySleeper" aria-hidden="true">
-                <ellipse cx="1115" cy="524" rx="15" ry="7" fill="#090f1a" opacity=".8"/>
-                <circle cx="1115" cy="501" r="8" fill="#171b26"/>
-                <path d="M1110 509q-20 5-18 20l40 0q-1-17-22-20Z" fill="#272d3a"/>
-                <path d="M1096 529q-6 7-3 13m34-13q8 5 8 13" fill="none" stroke="#252a36" strokeWidth="5" strokeLinecap="round"/>
+                {/* Only a soft sleeping silhouette is visible through the tent fabric at night. */}
+                <ellipse cx="1115" cy="537" rx="39" ry="6" fill="#080f1b" opacity=".45"/>
+                <path d="M1080 529Q1086 516 1104 517L1126 520Q1140 524 1147 535L1137 541 1088 540Z" fill="#101522" opacity=".96"/>
+                <circle cx="1090" cy="518" r="10" fill="#0a101c"/>
+                <path d="M1083 513Q1085 505 1094 508L1100 515 1092 522 1084 520Z" fill="#070d18"/>
+                <path d="M1117 524 1134 528 1141 536 1128 537 1114 531Z" fill="#0a111d"/>
+                <path d="M1097 526 1109 532 1119 531" fill="none" stroke="#273044" strokeWidth="2.5" strokeLinecap="round" opacity=".8"/>
               </g>
-              <g className="storyZzz" aria-hidden="true"><text x="1122" y="531">Z</text><text x="1142" y="503">z</text><text x="1161" y="476">z</text></g>
+              <g className="storyZzz" aria-hidden="true"><text x="1121" y="511">Z</text><text x="1140" y="488">z</text><text x="1157" y="466">z</text></g>
             </g>
             <g className="storyCamper">
-              {/* Ground contact and long soft cast shadow from the firelight at the camper's right. */}
-              <ellipse cx="820" cy="573" rx="102" ry="13" fill="#102b25" opacity=".48" className="storyCamperCastShadow"/>
-              <ellipse cx="840" cy="565" rx="64" ry="8" fill="#1d4639" opacity=".55"/>
-              {/* Shoes and bent legs: a compact, natural seated hiking posture. */}
-              <path d="M803 548q-19 1-31 14l-24 3q-9 2-6 9 3 5 13 2l34-5 24-11Z" fill="#263c37" stroke="#172c28" strokeWidth="3" strokeLinejoin="round"/>
-              <path d="M846 551q25-2 43 14l20 2q9 1 8 8-2 6-12 4l-28-5-38-13Z" fill="#263c37" stroke="#172c28" strokeWidth="3" strokeLinejoin="round"/>
-              <path d="M751 571q-9 0-13 5l28 1 10-5Z" fill="#4c3529" stroke="#251f1c" strokeWidth="2"/>
-              <path d="M895 575q8-2 15 5l-26 0-7-5Z" fill="#4c3529" stroke="#251f1c" strokeWidth="2"/>
-              {/* Broad, athletic torso with natural shoulder taper and shirt folds. */}
-              <path d="M807 517q13-14 31-12l22 4q18 7 25 25l-8 28-26 12-43-10-18-19Z" fill="#3e7657" stroke="#244a3a" strokeWidth="4" strokeLinejoin="round"/>
-              <path d="M816 518q12-10 24-7l18 7 13 21-18 12-31-8Z" fill="#679a70" opacity=".86"/>
-              <path d="M837 520l-6 25 13 17M858 521l12 19-8 10M813 537l13 12" fill="none" stroke="#2b5b43" strokeWidth="3" strokeLinecap="round" opacity=".85"/>
-              {/* Stronger upper arm and forearm raised toward the birds, with elbow and skin highlights. */}
-              <path d="M812 523q-15-13-24-34l-20-15q-8-5-12 1-3 5 6 12l16 14 16 30Z" fill="#477f5c" stroke="#244a3a" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M776 490 764 478" stroke="#dca77c" strokeWidth="11" strokeLinecap="round"/>
-              <path d="M765 478 755 465" stroke="#dca77c" strokeWidth="8" strokeLinecap="round"/>
-              <path d="M759 468l-5-7" stroke="#f1c39a" strokeWidth="3.5" strokeLinecap="round"/>
-              {/* Back-facing head, textured hair and neck. */}
-              <path d="M828 492q-4-18 8-25 17-9 29 5l-1 18-9-7-9 5-7-4-7 9Z" fill="#2a211e" stroke="#171715" strokeWidth="3" strokeLinejoin="round"/>
-              <ellipse cx="844" cy="496" rx="17" ry="19" fill="#c68c65" stroke="#875b43" strokeWidth="2.5"/>
-              <path d="M828 491q2-14 14-17 11-2 20 9l-4 9-9-6-8 3-8-3-5 8Z" fill="#30241f"/>
-              <path d="M837 512l-1 9 15 1-2-10" fill="#bb805b"/>
-              {/* Front arm resting naturally across the lap. */}
-              <path d="M861 531q15 3 23 17l-6 8-20-10" fill="none" stroke="#3f7655" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M878 549l10 5" stroke="#d5a077" strokeWidth="10" strokeLinecap="round"/>
-              {/* Campfire orange bounce light on the fire-facing side of the clothes, arm and hair. */}
-              <path d="M867 531q11 9 15 17M879 553l9 2" fill="none" stroke="#ffb15a" strokeWidth="3.5" strokeLinecap="round" opacity=".8" className="storyFireBounce"/>
-              <path d="M863 539q7 11 8 18" fill="none" stroke="#ff8b3c" strokeWidth="5" strokeLinecap="round" opacity=".4" className="storyFireBounce"/>
-              <path d="M854 483q5 6 5 12" fill="none" stroke="#ffb35c" strokeWidth="2.5" strokeLinecap="round" opacity=".65" className="storyFireBounce"/>
-              {/* Yellow hiking pack with shoulder strap, pockets, seams and buckles. */}
-              <path d="M869 531q8-10 16 0" fill="none" stroke="#473b27" strokeWidth="4" strokeLinecap="round"/>
-              <rect x="880" y="530" width="31" height="35" rx="6" fill="#dcae21" stroke="#86651c" strokeWidth="3" className="storyYellowBag"/>
-              <path d="M885 539h21M885 557h21M888 541v13" stroke="#f6d75c" strokeWidth="2" opacity=".9"/>
-              <rect x="891" y="544" width="10" height="7" rx="2" fill="#80601b"/>
-              <path d="M885 532q10-9 20 0" fill="none" stroke="#f7db69" strokeWidth="2.5"/>
+              {/* Ground contact shadow keeps the standing hiker anchored to the landscape. */}
+              <ellipse cx="815" cy="573" rx="49" ry="8" fill="#102b25" opacity=".5" className="storyCamperCastShadow"/>
+              {/* Natural standing stance in tapered, slightly baggy mustard cargo trousers. */}
+              <path d="M791 476 831 476 835 514 828 548 827 568 808 568 805 531 798 568 778 568 782 531 780 505Z" fill="#8b682b" stroke="#5d4928" strokeWidth="3.5" strokeLinejoin="round"/>
+              <path d="M792 490 805 495 800 527M824 491 815 506 820 532" fill="none" stroke="#b38a43" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M783 507 799 511 798 523 782 519ZM818 505 833 502 833 517 818 520Z" fill="#765625" stroke="#594522" strokeWidth="2.5" strokeLinejoin="round"/>
+              <path d="M783 567 805 567 806 575 775 575Q770 572 776 569Z" fill="#252b2a" stroke="#151c1b" strokeWidth="2.5" strokeLinejoin="round"/>
+              <path d="M808 567 827 567 840 574Q843 578 835 578L807 576Z" fill="#252b2a" stroke="#151c1b" strokeWidth="2.5" strokeLinejoin="round"/>
+              <path d="M794 477 794 486M826 477 826 486" stroke="#d0aa5e" strokeWidth="2" strokeLinecap="round"/>
+              {/* White tee with a thin black centre stripe, realistic sleeve cuffs and soft folds. */}
+              <path d="M789 405Q797 396 807 397L823 397Q834 400 839 412L831 434 831 480Q811 491 786 480L787 436 778 418Q781 409 789 405Z" fill="#f1eee6" stroke="#aaa9a2" strokeWidth="3.2" strokeLinejoin="round"/>
+              <path d="M812 400 812 482" stroke="#202322" strokeWidth="3.2" strokeLinecap="round"/>
+              <path d="M789 412 798 427M834 412 825 428M792 450l10 6M824 455l7-5M798 477l9-3" fill="none" stroke="#c5c3bc" strokeWidth="2.4" strokeLinecap="round"/>
+              <path d="M781 416 770 435 778 442 790 426Z" fill="#e8e5dd" stroke="#aaa9a2" strokeWidth="2.5" strokeLinejoin="round"/>
+              <path d="M832 414 844 430 836 439 826 425Z" fill="#e8e5dd" stroke="#aaa9a2" strokeWidth="2.5" strokeLinejoin="round"/>
+              {/* Left arm clearly points toward the birds; wristwatch has a classic sci-fi dial. */}
+              <path d="M779 429 762 414 746 394" fill="none" stroke="#c98e68" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M746 394 732 379" fill="none" stroke="#c98e68" strokeWidth="9" strokeLinecap="round"/>
+              <path d="M734 380 728 371 737 375 741 383" fill="#c98e68" stroke="#875b43" strokeWidth="1.8" strokeLinejoin="round"/>
+              <path d="M756 407 766 414" stroke="#dba780" strokeWidth="3" strokeLinecap="round"/>
+              <g className="storyOmniWatch" transform="translate(754 405) rotate(-34)">
+                <rect x="-4" y="-9" width="8" height="19" rx="3" fill="#344b32"/>
+                <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#202d25" stroke="#6f8a4a" strokeWidth="2"/>
+                <circle r="4.4" fill="#a5e34c" stroke="#d5f58c" strokeWidth="1.3"/>
+                <circle r="1.8" fill="#eaffbd"/>
+              </g>
+              {/* Right arm bends naturally with hand resting on the waist. */}
+              <path d="M835 426 849 445 832 457" fill="none" stroke="#c98e68" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M832 457 820 451" fill="none" stroke="#c98e68" strokeWidth="9" strokeLinecap="round"/>
+              <path d="M819 451 814 445" fill="none" stroke="#dba780" strokeWidth="3" strokeLinecap="round"/>
+              {/* Head turned slightly toward the birds, with layered dark hair and neck. */}
+              <path d="M795 393 793 379Q795 363 811 363 827 364 829 380L824 395 814 391 807 397Z" fill="#30231f" stroke="#1b1917" strokeWidth="3" strokeLinejoin="round"/>
+              <ellipse cx="811" cy="384" rx="14" ry="17" fill="#c98e68" stroke="#875b43" strokeWidth="2.2"/>
+              <path d="M797 380Q797 365 811 365 823 365 828 377L822 381 817 376 809 381 803 377 798 387Z" fill="#30231f"/>
+              <path d="M800 387q4 4 8 3" fill="none" stroke="#e3b08a" strokeWidth="2" strokeLinecap="round"/>
+              {/* Lime daypack placed on the ground beside him, not worn on his back. */}
+              <g className="storyLimeBag">
+                <ellipse cx="864" cy="572" rx="28" ry="5" fill="#142b24" opacity=".4"/>
+                <path d="M844 535Q844 529 851 527L874 527Q881 530 882 539L884 565Q883 570 877 571L850 571Q844 569 844 563Z" fill="#b5d934" stroke="#5d7620" strokeWidth="3" strokeLinejoin="round"/>
+                <path d="M850 534Q862 526 875 534" fill="none" stroke="#e4f68b" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M850 542 878 542 878 557 850 557Z" fill="#9bc42b" stroke="#6b8724" strokeWidth="2.5" strokeLinejoin="round"/>
+                <path d="M854 546 874 546M854 551 870 551" stroke="#d9ef77" strokeWidth="2" strokeLinecap="round"/>
+                <rect x="860" y="557" width="8" height="5" rx="1.5" fill="#4d6123"/>
+                <path d="M846 541 841 549 843 560M880 541l5 8-2 10" fill="none" stroke="#758e28" strokeWidth="2.5" strokeLinecap="round"/>
+              </g>
             </g>
             <g className="storyFire">
               <ellipse cx="978" cy="571" rx="104" ry="75" fill="url(#storyFireGlow)" className="storyFireLight"/><ellipse cx="978" cy="584" rx="57" ry="15" fill="#ffb95b" opacity=".2"/>
