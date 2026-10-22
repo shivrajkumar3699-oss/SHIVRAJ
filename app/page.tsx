@@ -181,7 +181,19 @@ export default function Home() {
       />
 
       {!entered && (
-        <div className="welcomeScreen">
+        <div className="welcomeScreen dreamWelcome">
+          <div className="dreamSky" aria-hidden="true" />
+          <div className="dreamSun" aria-hidden="true" />
+          <div className="dreamCloud dreamCloudOne" aria-hidden="true" />
+          <div className="dreamCloud dreamCloudTwo" aria-hidden="true" />
+          <div className="dreamMountain dreamMountainBack" aria-hidden="true" />
+          <div className="dreamMountain dreamMountainFront" aria-hidden="true" />
+          <div className="dreamMeadow" aria-hidden="true" />
+          <div className="dreamFireflies" aria-hidden="true">
+            {Array.from({ length: 34 }, (_, i) => (
+              <i key={i} style={{ "--i": i } as React.CSSProperties} />
+            ))}
+          </div>
           <div className="welcomeVignette" />
           <div className="welcomeGlow" />
           <div className="welcomeRing welcomeRingOne" />
@@ -195,24 +207,38 @@ export default function Home() {
             ))}
           </div>
           <div className="welcomeContent">
-            <div className="welcomeKicker">CREATIVE DEVELOPER · AI · WEB</div>
+            <div className="welcomeKicker">A LITTLE WORLD OF IDEAS & WONDER</div>
             <div className="welcomeName">Shivraj</div>
             <div className="welcomeRule" />
+            <p className="dreamWelcomeLine">made with curiosity, rooted in wonder.</p>
             <button className="enterButton" onClick={enterSite}>
-              <span>Enter experience</span>
+              <span>Step into my world</span>
               <b>↗</b>
             </button>
-            <div className="welcomeHint">Sound on · An immersive portfolio</div>
+            <div className="welcomeHint">Take a breath · Stay a little</div>
           </div>
         </div>
       )}
 
       <button
-        className="audioButton"
+        className={muted ? "audioButton audioButtonMuted" : "audioButton"}
         onClick={toggleAudio}
         aria-label={muted ? "Play melody" : "Mute melody"}
+        aria-pressed={!muted}
+        title={muted ? "Play ambient melody" : "Mute ambient melody"}
       >
-        {muted ? "🔇" : "🔊"}
+        <svg className="audioIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+          {muted ? (
+            <path d="m16 9 5 6m0-6-5 6" />
+          ) : (
+            <>
+              <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+              <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+            </>
+          )}
+        </svg>
+        <span className="audioButtonAura" aria-hidden="true" />
       </button>
 
       <div className="noise" />
@@ -239,6 +265,15 @@ export default function Home() {
       </nav>
 
       <section id="top" className="hero">
+        <div className="dreamHeroLandscape" aria-hidden="true">
+          <div className="dreamHeroSun" />
+          <div className="dreamHeroCloud dreamHeroCloudOne" />
+          <div className="dreamHeroCloud dreamHeroCloudTwo" />
+          <div className="dreamHeroRange dreamHeroRangeBack" />
+          <div className="dreamHeroRange dreamHeroRangeFront" />
+          <div className="dreamHeroField" />
+          <div className="dreamHeroGlow" />
+        </div>
         <div className="orb orbOne" />
         <div className="orb orbTwo" />
         <div className="heroGrid" />
@@ -253,10 +288,10 @@ export default function Home() {
           </p>
           <h1 className="heroReveal heroRevealTwo">SHIVRAJ</h1>
           <p className="heroSub heroReveal heroRevealThree">
-            Building ideas into <em>experiences.</em>
+            A curious mind, a love for nature, and a little magic in everything we build.
           </p>
           <a href="#work" className="heroButton heroReveal heroRevealFour">
-            Explore my work <span>↓</span>
+            Wander through <span>↓</span>
           </a>
         </div>
         <div className="scrollHint">

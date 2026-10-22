@@ -419,3 +419,96 @@ footer.isVisible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .identityName,.identityAge strong{animation:none}
 }
+
+
+/* --------------------------------------------------------------------------
+   NATURE DREAMCORE — soft light, living landscapes, and slow good-vibe motion
+   -------------------------------------------------------------------------- */
+:root{--dream-ink:#17382f;--dream-moss:#527b62;--dream-sage:#a9c6a5;--dream-cream:#f6f1df;--dream-gold:#e8c987}
+html{scroll-behavior:smooth}
+body{background:#edf0df;color:#203a31}
+main{background:linear-gradient(180deg,#edf0df 0%,#e8eddf 40%,#f6f0df 100%);color:#203a31}
+.welcomeScreen.dreamWelcome{isolation:isolate;background:linear-gradient(180deg,#9fc8ce 0%,#c5d9ce 37%,#f0d8a5 67%,#526f60 100%);color:#fff8e9}
+.dreamSky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 43%,rgba(255,241,190,.95) 0,rgba(255,226,165,.55) 15%,transparent 39%),linear-gradient(180deg,rgba(135,183,190,.15),rgba(255,225,170,.18) 55%,rgba(31,67,53,.38));z-index:-5}
+.dreamSun{position:absolute;width:clamp(150px,22vw,310px);aspect-ratio:1;border-radius:50%;left:50%;top:24%;transform:translate(-50%,-50%);background:radial-gradient(circle at 42% 36%,#fff9d9,#f6dfa0 48%,rgba(249,207,143,.1) 70%);box-shadow:0 0 80px rgba(255,237,181,.6),0 0 190px rgba(255,226,161,.38);animation:dreamSunBreath 9s ease-in-out infinite alternate;z-index:-4}
+.dreamCloud{position:absolute;width:48vw;height:15vw;min-height:90px;max-height:180px;border-radius:50%;filter:blur(22px);background:rgba(255,248,221,.48);z-index:-3;animation:dreamCloudFloat 28s ease-in-out infinite alternate}
+.dreamCloud:before,.dreamCloud:after{content:"";position:absolute;border-radius:50%;background:inherit}
+.dreamCloud:before{width:52%;height:130%;left:17%;top:-35%}.dreamCloud:after{width:45%;height:115%;right:14%;top:-20%}
+.dreamCloudOne{left:-9%;top:27%}.dreamCloudTwo{right:-10%;top:38%;transform:scale(.8);animation-delay:-12s;opacity:.7}
+.dreamMountain{position:absolute;left:-10%;width:120%;bottom:11%;height:40%;z-index:-2;clip-path:polygon(0 74%,11% 42%,20% 61%,34% 14%,46% 57%,57% 28%,69% 62%,82% 18%,93% 57%,100% 40%,100% 100%,0 100%)}
+.dreamMountainBack{background:linear-gradient(155deg,#a5c3b1,#678e7c 65%,#577967);opacity:.84;bottom:14%;filter:blur(1px)}
+.dreamMountainFront{height:31%;bottom:7%;background:linear-gradient(165deg,#73937b,#345d4b 72%);clip-path:polygon(0 45%,15% 23%,28% 52%,44% 15%,58% 54%,76% 18%,90% 43%,100% 28%,100% 100%,0 100%);opacity:.94}
+.dreamMeadow{position:absolute;inset:auto 0 0;height:26%;background:linear-gradient(180deg,rgba(61,100,71,.2),#244a3b 90%);z-index:-1}
+.dreamMeadow:before{content:"";position:absolute;left:-5%;right:-5%;top:-28%;height:65%;border-radius:50%;background:#6f9871;filter:blur(20px)}
+.dreamFireflies{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.dreamFireflies i{position:absolute;left:calc((var(--i)*2.93%));top:calc(20% + (var(--i)*1.7%));width:3px;height:3px;border-radius:50%;background:#fff6c4;box-shadow:0 0 12px 3px rgba(255,238,169,.7);opacity:.1;animation:fireflyDream calc(4s + (var(--i)%8)*.7s) ease-in-out infinite alternate;animation-delay:calc((var(--i)%11)*-.65s)}
+.dreamWelcome .welcomeVignette{background:linear-gradient(180deg,rgba(24,56,52,.05),transparent 40%,rgba(22,53,40,.25));z-index:0}
+.dreamWelcome .welcomeGlow{width:75vw;height:60vw;background:radial-gradient(ellipse,rgba(255,244,194,.25),transparent 68%);filter:blur(35px);z-index:0}
+.dreamWelcome .welcomeRing{border-color:rgba(255,249,216,.17);box-shadow:0 0 60px rgba(255,241,194,.08);z-index:0}
+.dreamWelcome .welcomeParticles i{background:#fff4c1;box-shadow:0 0 12px rgba(255,246,195,.8);opacity:.65}
+.dreamWelcome .welcomeContent{z-index:4;text-shadow:0 3px 35px rgba(22,54,44,.24)}
+.dreamWelcome .welcomeKicker{color:#fff6d9;letter-spacing:.28em;font-size:10px}
+.dreamWelcome .welcomeName{font-size:clamp(94px,16vw,210px);font-weight:500;color:#fff9e8;text-shadow:0 8px 40px rgba(38,71,52,.18),0 0 75px rgba(255,239,190,.4);letter-spacing:-.045em}
+.dreamWelcome .welcomeRule{background:linear-gradient(90deg,transparent,rgba(255,246,208,.9),transparent);height:1px;width:clamp(90px,15vw,190px);margin:29px auto 0}
+.dreamWelcomeLine{font-family:Georgia,serif;font-style:italic;font-size:clamp(14px,1.5vw,19px);letter-spacing:.035em;color:rgba(255,249,226,.92);margin:18px 0 0}
+.dreamWelcome .enterButton{margin-top:37px;border:1px solid rgba(255,249,220,.6);background:rgba(255,250,227,.14);color:#fff9e8;box-shadow:0 8px 36px rgba(31,63,47,.08);backdrop-filter:blur(20px);padding:16px 24px 16px 27px}
+.dreamWelcome .enterButton b{color:#fff0b9}
+.dreamWelcome .enterButton:hover{background:rgba(255,250,227,.24);box-shadow:0 16px 50px rgba(255,239,186,.18);transform:translateY(-3px)}
+.dreamWelcome .welcomeHint{margin-top:19px;color:rgba(255,249,225,.78);font-size:9px;letter-spacing:.2em;text-transform:uppercase}
+.dreamHeroLandscape{position:absolute;inset:0;overflow:hidden;pointer-events:none;background:linear-gradient(180deg,#b5d7d4 0%,#e9d9b0 49%,#9bb59a 75%,#527b60 100%);z-index:0}
+.dreamHeroSun{position:absolute;width:clamp(190px,27vw,390px);aspect-ratio:1;left:70%;top:9%;border-radius:50%;background:radial-gradient(circle,#fff8d9 0%,#f7dfaa 48%,rgba(247,223,170,0) 72%);filter:blur(1px);opacity:.9}
+.dreamHeroCloud{position:absolute;width:48vw;height:12vw;border-radius:50%;background:rgba(255,248,227,.52);filter:blur(28px);top:21%;animation:dreamCloudFloat 30s ease-in-out infinite alternate}
+.dreamHeroCloudOne{left:-12%}.dreamHeroCloudTwo{right:-18%;top:33%;transform:scale(.7);animation-delay:-14s;opacity:.7}
+.dreamHeroRange{position:absolute;left:-10%;width:120%;bottom:15%;height:52%;clip-path:polygon(0 71%,14% 42%,23% 58%,39% 12%,53% 59%,67% 24%,79% 58%,91% 30%,100% 53%,100% 100%,0 100%)}
+.dreamHeroRangeBack{background:linear-gradient(150deg,#b2cdb5,#779e87 65%,#68876e);opacity:.9}
+.dreamHeroRangeFront{bottom:3%;height:39%;background:linear-gradient(160deg,#759a75,#355d48 85%);clip-path:polygon(0 48%,17% 22%,30% 51%,45% 13%,61% 48%,78% 18%,91% 42%,100% 29%,100% 100%,0 100%)}
+.dreamHeroField{position:absolute;bottom:0;height:24%;width:100%;background:linear-gradient(180deg,rgba(71,112,77,.2),#254b39)}
+.dreamHeroGlow{position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,239,214,.2),transparent 65%),linear-gradient(180deg,rgba(250,246,224,.1),rgba(36,73,54,.18))}
+.hero{isolation:isolate;background:transparent!important;color:#f8f4df}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,53,43,.54),rgba(23,53,43,.12) 70%),linear-gradient(0deg,rgba(27,65,45,.46),transparent 65%);z-index:0;pointer-events:none}
+.heroInner,.scrollHint{z-index:2;position:relative}
+.heroGrid{opacity:.13;background-image:linear-gradient(rgba(255,249,222,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(255,249,222,.18) 1px,transparent 1px);mask-image:linear-gradient(transparent,#000 40%,transparent)}
+.hero .orb{background:radial-gradient(circle,rgba(255,239,186,.2),transparent 70%);mix-blend-mode:screen}
+.hero .eyebrow{color:#fff2cb}.hero .eyebrow span{background:#d6e1ac;box-shadow:0 0 18px #d6e1ac}
+.hero h1{color:#fff8e6;text-shadow:0 6px 35px rgba(25,57,42,.2)}
+.heroSub{color:rgba(255,249,230,.9)}
+.heroSub em{color:#f1d89b}
+.heroButton{border-color:rgba(255,249,223,.6);color:#fff8e6;background:rgba(255,249,223,.1);backdrop-filter:blur(15px)}
+.heroButton:hover{background:rgba(255,249,223,.2);border-color:#fff8d8}
+.scrollHint{color:rgba(255,249,224,.8)}
+.scrollHint span{background:#f2e2b2}
+.nav{background:rgba(239,241,223,.72);border-bottom:1px solid rgba(65,102,76,.12);backdrop-filter:blur(24px);color:#284b3a}
+.nav.navScrolled{background:rgba(239,241,223,.92);box-shadow:0 10px 40px rgba(40,69,49,.08)}
+.brand,.navLinks a{color:#284b3a}.brand span{color:#8ba878}.navCta{border-color:rgba(72,111,79,.35)}
+.section{color:#284436}.sectionLabel{color:#769177}
+.about,.work,.contact{background:transparent}
+.aboutCopy .lead,.identityName,.contactInner h2{color:#294b39}
+.identityAge,.identityLocation,.identityIntro,.aboutCopy,.sectionHead>span,.projectDesc{color:#627d68}
+.traits p{border-color:rgba(70,109,77,.15);color:#617a65}
+.identityContact,.mail{color:#426b4e;border-color:rgba(75,112,79,.35)}
+.project{background:rgba(255,255,247,.52);border-color:rgba(75,111,79,.15);box-shadow:0 15px 55px rgba(40,67,46,.045)}
+.project:hover{background:rgba(255,255,249,.8);box-shadow:0 26px 70px rgba(43,75,48,.1)}
+.projectMeta h3{color:#2c4937}.projectMeta p,.projectArrow,.projectMeta>div>span{color:#789278}
+.projectVisual{background:linear-gradient(145deg,#d3e0c8,#e9d9b2)}
+.projectVisual.secret{background:linear-gradient(145deg,#293d35,#6b8162)}
+.capInterface{background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(245,248,230,.34));border-color:rgba(75,111,79,.18)}
+.capMiniNav,.capCards{color:#345440}.capGlow{background:radial-gradient(circle,rgba(166,201,139,.4),transparent 70%)}
+.contactInner h2 span{color:#819e76}
+.audioButton{border-color:rgba(74,111,78,.3);background:rgba(244,246,229,.76);color:#34513c;box-shadow:0 8px 30px rgba(44,74,47,.12)}
+footer{border-color:rgba(72,109,78,.2);color:#789078}
+@keyframes dreamSunBreath{from{transform:translate(-50%,-50%) scale(.96);opacity:.76}to{transform:translate(-50%,-50%) scale(1.05);opacity:1}}
+@keyframes dreamCloudFloat{from{translate:-2vw 0}to{translate:4vw 1.6vh}}
+@keyframes fireflyDream{from{transform:translate3d(-7px,12px,0);opacity:.12}to{transform:translate3d(10px,-17px,0);opacity:.9}}
+@media(max-width:700px){.dreamCloud{width:80vw;height:25vw;filter:blur(17px)}.dreamSun{top:25%;width:190px}.dreamMountain{height:32%;bottom:10%}.dreamMountainFront{height:25%}.dreamWelcome .welcomeName{font-size:clamp(84px,24vw,145px)}.dreamWelcome .welcomeKicker{font-size:8px;letter-spacing:.19em}.dreamWelcomeLine{max-width:280px;margin:16px auto 0;line-height:1.5}.dreamHeroSun{left:58%;top:14%;width:240px}.dreamHeroRange{height:38%;bottom:12%}.dreamHeroRangeFront{height:27%;bottom:3%}.hero:before{background:linear-gradient(90deg,rgba(23,53,43,.42),rgba(23,53,43,.08)),linear-gradient(0deg,rgba(27,65,45,.35),transparent 65%)}}
+@media(prefers-reduced-motion:reduce){.dreamSun,.dreamCloud,.dreamFireflies i,.dreamHeroCloud{animation:none!important}}
+
+/* Nature dreamcore audio control: keep the existing playback logic, refine only its presentation. */
+.audioButton{isolation:isolate;display:grid;place-items:center;overflow:hidden;width:50px;height:50px;right:clamp(16px,3vw,30px);bottom:clamp(16px,3vw,30px);border:1px solid rgba(222,235,201,.62);border-radius:50%;background:linear-gradient(145deg,rgba(247,249,229,.88),rgba(190,213,175,.72));color:#31533c;box-shadow:0 8px 28px rgba(35,72,45,.19),inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,background .28s ease}
+.audioButton:hover{transform:translateY(-2px) scale(1.045);border-color:#f8f4d8;background:linear-gradient(145deg,rgba(255,255,240,.96),rgba(199,222,181,.88));box-shadow:0 12px 34px rgba(35,72,45,.24),0 0 24px rgba(220,232,176,.25)}
+.audioButton:focus-visible{outline:2px solid #e7dba6;outline-offset:4px}
+.audioIcon{position:relative;z-index:2;width:20px;height:20px;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.audioButton:hover .audioIcon{transform:scale(1.06)}
+.audioButtonAura{position:absolute;z-index:1;width:32px;height:32px;border-radius:50%;background:rgba(163,193,136,.42);filter:blur(12px);opacity:.8;pointer-events:none}
+.audioButtonMuted{background:rgba(229,234,211,.72);color:#70836c;border-color:rgba(112,131,108,.34);box-shadow:0 6px 22px rgba(35,72,45,.1),inset 0 1px 0 rgba(255,255,255,.7)}
+.audioButtonMuted .audioButtonAura{opacity:.35}
+@media(prefers-reduced-motion:reduce){.audioButton,.audioIcon{transition:none}}
