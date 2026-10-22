@@ -367,19 +367,28 @@ export default function Home() {
               <circle cx="1114" cy="495" r="8" fill="#111a28" className="storySleeperHead"/>
               <path d="M1111 503q-22 7-17 24l32 0q4-18-15-24Z" fill="#111a28" className="storySleeperBody"/>
               <path d="M1097 525q-10 7-7 16m35-16q12 5 9 16" fill="none" stroke="#111a28" strokeWidth="5" strokeLinecap="round" className="storySleeperLegs"/>
-              <g className="storyZzz"><text x="1143" y="461">z</text><text x="1159" y="436">z</text><text x="1176" y="409">z</text></g>
+              <g className="storyZzz" aria-hidden="true"><text x="1118" y="532">Z</text><text x="1138" y="504">z</text><text x="1157" y="477">z</text></g>
             </g>
             <g className="storyCamper">
-              <path d="M820 550 845 510 869 550Z" fill="#303d3b"/>
-              <path d="M838 530q-18-15-28-35l-18-7q-8-2-9 6t12 9l18 15" fill="none" stroke="#253a36" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="843" cy="501" r="17" fill="#d8a16f" stroke="#5b483c" strokeWidth="3"/>
-              <path d="M828 490q8-19 27-7l6 12-15-5-8 5Z" fill="#3a302b"/>
-              <path d="M827 520q16-12 31 2l12 28h-47Z" fill="#d6b74d" stroke="#675a32" strokeWidth="3" strokeLinejoin="round"/>
-              <path d="M836 546q-28 3-45 17l-24 0q-9 0-8 7t12 7l38-1 42-16" fill="#243a35" stroke="#243a35" strokeWidth="8" strokeLinecap="round"/>
-              <path d="M855 546q23 7 35 19l-3 8-35-8-19-13" fill="#243a35" stroke="#243a35" strokeWidth="7" strokeLinecap="round"/>
-              <path d="M815 520 799 514" stroke="#d8a16f" strokeWidth="8" strokeLinecap="round"/>
-              <rect x="864" y="526" width="25" height="30" rx="5" fill="#e6bd26" stroke="#856a21" strokeWidth="3" className="storyYellowBag"/>
-              <path d="M870 527q6-12 13 0" fill="none" stroke="#856a21" strokeWidth="3"/>
+              {/* A clear back-facing seated pose: head, neck, shoulders, pointing arm, folded legs and shoes. */}
+              <ellipse cx="842" cy="565" rx="67" ry="9" fill="#254f40" opacity=".25"/>
+              <path d="M818 536q-19 8-31 20l-25 0q-9 0-8 7t11 7l33-1 31-14Z" fill="#314a43" stroke="#243a35" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="M849 539q26 1 42 17l18 1q8 0 8 7t-10 7l-24-2-38-16Z" fill="#314a43" stroke="#243a35" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="M780 565q-9-1-13 6l31 0 9-5Z" fill="#342e2c" stroke="#211f20" strokeWidth="2"/>
+              <path d="M895 567q8-1 13 5l-25 0-7-5Z" fill="#342e2c" stroke="#211f20" strokeWidth="2"/>
+              <path d="M813 517q20-16 43-2l17 31-16 14-47-10-9-19Z" fill="#5b9a75" stroke="#315d49" strokeWidth="4" strokeLinejoin="round"/>
+              <path d="M824 522q16 10 31 0l9 27-20 11-20-11Z" fill="#42785d" opacity=".75"/>
+              <path d="M815 523q-16-15-25-35l-20-15q-7-5-11 1t6 11l16 14 16 31" fill="#5b9a75" stroke="#315d49" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M758 474 749 468" stroke="#d7a174" strokeWidth="9" strokeLinecap="round"/>
+              <circle cx="844" cy="494" r="19" fill="#d7a174" stroke="#8d6046" strokeWidth="3"/>
+              <path d="M825 490q-2-19 15-22 17-4 25 11l-1 13-9-10-12 4-7-4-7 10Z" fill="#3b302b" stroke="#29231f" strokeWidth="2" strokeLinejoin="round"/>
+              <path d="M834 512l-1 7 14 0-1-7" fill="#c88c61"/>
+              <path d="M861 532q14 5 22 16l-5 6-19-9" fill="none" stroke="#d7a174" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M873 546l8 3" stroke="#d7a174" strokeWidth="8" strokeLinecap="round"/>
+              <path d="M828 515q16-9 30 2l12 25-18 13-34-12Z" fill="#5b9a75" stroke="#315d49" strokeWidth="3" strokeLinejoin="round"/>
+              <rect x="882" y="530" width="27" height="32" rx="5" fill="#f0c72e" stroke="#9c7923" strokeWidth="3" className="storyYellowBag"/>
+              <path d="M888 531q7-12 15 0" fill="none" stroke="#9c7923" strokeWidth="3"/>
+              <path d="M886 540h19" stroke="#ffe68b" strokeWidth="2" opacity=".85"/>
             </g>
             <g className="storyFire">
               <ellipse cx="978" cy="571" rx="86" ry="61" fill="url(#storyFireGlow)" className="storyFireLight"/>
