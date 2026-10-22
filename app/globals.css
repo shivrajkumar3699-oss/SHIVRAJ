@@ -501,3 +501,14 @@ footer{border-color:rgba(72,109,78,.2);color:#789078}
 @keyframes fireflyDream{from{transform:translate3d(-7px,12px,0);opacity:.12}to{transform:translate3d(10px,-17px,0);opacity:.9}}
 @media(max-width:700px){.dreamCloud{width:80vw;height:25vw;filter:blur(17px)}.dreamSun{top:25%;width:190px}.dreamMountain{height:32%;bottom:10%}.dreamMountainFront{height:25%}.dreamWelcome .welcomeName{font-size:clamp(84px,24vw,145px)}.dreamWelcome .welcomeKicker{font-size:8px;letter-spacing:.19em}.dreamWelcomeLine{max-width:280px;margin:16px auto 0;line-height:1.5}.dreamHeroSun{left:58%;top:14%;width:240px}.dreamHeroRange{height:38%;bottom:12%}.dreamHeroRangeFront{height:27%;bottom:3%}.hero:before{background:linear-gradient(90deg,rgba(23,53,43,.42),rgba(23,53,43,.08)),linear-gradient(0deg,rgba(27,65,45,.35),transparent 65%)}}
 @media(prefers-reduced-motion:reduce){.dreamSun,.dreamCloud,.dreamFireflies i,.dreamHeroCloud{animation:none!important}}
+
+/* Nature dreamcore audio control: keep the existing playback logic, refine only its presentation. */
+.audioButton{isolation:isolate;display:grid;place-items:center;overflow:hidden;width:50px;height:50px;right:clamp(16px,3vw,30px);bottom:clamp(16px,3vw,30px);border:1px solid rgba(222,235,201,.62);border-radius:50%;background:linear-gradient(145deg,rgba(247,249,229,.88),rgba(190,213,175,.72));color:#31533c;box-shadow:0 8px 28px rgba(35,72,45,.19),inset 0 1px 0 rgba(255,255,255,.8);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,background .28s ease}
+.audioButton:hover{transform:translateY(-2px) scale(1.045);border-color:#f8f4d8;background:linear-gradient(145deg,rgba(255,255,240,.96),rgba(199,222,181,.88));box-shadow:0 12px 34px rgba(35,72,45,.24),0 0 24px rgba(220,232,176,.25)}
+.audioButton:focus-visible{outline:2px solid #e7dba6;outline-offset:4px}
+.audioIcon{position:relative;z-index:2;width:20px;height:20px;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.audioButton:hover .audioIcon{transform:scale(1.06)}
+.audioButtonAura{position:absolute;z-index:1;width:32px;height:32px;border-radius:50%;background:rgba(163,193,136,.42);filter:blur(12px);opacity:.8;pointer-events:none}
+.audioButtonMuted{background:rgba(229,234,211,.72);color:#70836c;border-color:rgba(112,131,108,.34);box-shadow:0 6px 22px rgba(35,72,45,.1),inset 0 1px 0 rgba(255,255,255,.7)}
+.audioButtonMuted .audioButtonAura{opacity:.35}
+@media(prefers-reduced-motion:reduce){.audioButton,.audioIcon{transition:none}}
