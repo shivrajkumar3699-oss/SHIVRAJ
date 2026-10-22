@@ -397,6 +397,16 @@ export default function Home() {
               <path d="m943 585 57-13m-49-4 45 19" stroke="#644438" strokeWidth="8" strokeLinecap="round"/>
               <circle cx="950" cy="548" r="3" fill="#ffcf6c" className="storyEmber"/><circle cx="1000" cy="535" r="2.5" fill="#ffcf6c" className="storyEmber storyEmberTwo"/>
             </g>
+            <g className="storyAshes" aria-hidden="true">
+              <ellipse cx="978" cy="581" rx="48" ry="9" fill="#c7c0a9" opacity=".75"/>
+              <ellipse cx="979" cy="579" rx="31" ry="5" fill="#77796f" opacity=".72"/>
+              <path d="m941 579 29-10 20 8 21-5 12 8-26 5-22-3-18 2Z" fill="#514b43" stroke="#6f665b" strokeWidth="2" strokeLinejoin="round"/>
+              <path d="m948 574 25-12 20 5 13-5 10 7-22 5-19-3-16 5Z" fill="#76543d" stroke="#493b31" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="m952 570 17-7m16 8 18-6" stroke="#b28a60" strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="959" cy="580" r="2.5" fill="#d8d2c1" opacity=".8"/>
+              <circle cx="990" cy="582" r="2" fill="#e0dac8" opacity=".8"/>
+              <circle cx="1002" cy="576" r="1.5" fill="#d8d2c1" opacity=".8"/>
+            </g>
           </g>
         </svg>
 

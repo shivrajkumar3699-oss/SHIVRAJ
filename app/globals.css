@@ -841,3 +841,23 @@ footer{border-color:rgba(72,109,78,.2);color:#789078}
   .themeToggle,.themeToggle:before,.themeToggleTrack:after,.audioButton,.audioButton:before,.audioButtonAura,.storyZzz text{animation:none!important}
   .themeToggle,.themeToggle *,.audioButton,.audioButton *,.storyLandscape *{transition-duration:.01ms!important}
 }
+
+
+/* Final campsite scene refinements: one sun, clear day-after-fire remains, sleeping silhouette only at night. */
+.dreamHeroSun{display:none!important}
+.storySunDisc{r:58px;stroke-width:3;stroke-dasharray:none}
+.storySunHalo{r:118px;opacity:.2}
+.storyAshes{opacity:1;transition:opacity .8s}
+.storyAshes ellipse:first-child{filter:blur(1.2px)}
+.storyAshes path{stroke-linecap:round}
+.storyFire{opacity:0!important}
+.theme-night .storyFire{opacity:1!important}
+.theme-day .storyAshes{opacity:1}
+.theme-night .storyAshes{opacity:0}
+.theme-day .storyCamper{opacity:1}
+.theme-night .storyCamper{opacity:0}
+.theme-day .storySleeperShadow,.theme-day .storySleeperHead,.theme-day .storySleeperBody,.theme-day .storySleeperLegs,.theme-day .storyZzz{opacity:0!important}
+.theme-night .storySleeperShadow,.theme-night .storySleeperHead,.theme-night .storySleeperBody,.theme-night .storySleeperLegs,.theme-night .storyZzz{opacity:1!important}
+@media (max-width: 640px){
+  .storySunDisc{r:53px}
+}
