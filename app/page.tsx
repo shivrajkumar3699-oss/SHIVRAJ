@@ -354,36 +354,64 @@ export default function Home() {
           </g>
           <g className="storyCamp">
             <g className="storyTent">
-              <path d="M1010 548 1113 385 1215 548Z" fill="url(#storyTentCanvas)" stroke="#604c39" strokeWidth="5" strokeLinejoin="round"/><path d="M1113 385 1102 548 1010 548Z" fill="#fff1c7" opacity=".42"/><path d="M1017 543 1113 397 1208 543" fill="none" stroke="#fff4d7" strokeWidth="2" opacity=".8"/><path d="M1040 515 1080 449" stroke="#cfa06b" strokeWidth="2" opacity=".8"/>
-              <path d="M1113 385 1113 548H1215Z" fill="url(#storyTentWarm)" stroke="#604c39" strokeWidth="4" strokeLinejoin="round"/><path d="M1118 407 1204 539H1118Z" fill="#f9a34b" opacity=".12"/>
-              <path d="M1081 548 1113 472 1148 548Z" fill="#3b463f" stroke="#604c39" strokeWidth="3" strokeLinejoin="round" className="storyTentDoor"/>
-              <path d="M1010 548 1113 385 1215 548" fill="none" stroke="#fff0c6" strokeWidth="3" strokeLinecap="round"/>
-              <path d="M1100 548 1113 472 1127 548Z" fill="#172332" className="storySleeperShadow"/>
-              <circle cx="1114" cy="495" r="8" fill="#111a28" className="storySleeperHead"/>
-              <path d="M1111 503q-22 7-17 24l32 0q4-18-15-24Z" fill="#111a28" className="storySleeperBody"/>
-              <path d="M1097 525q-10 7-7 16m35-16q12 5 9 16" fill="none" stroke="#111a28" strokeWidth="5" strokeLinecap="round" className="storySleeperLegs"/>
-              <g className="storyZzz" aria-hidden="true"><text x="1118" y="532">Z</text><text x="1138" y="504">z</text><text x="1157" y="477">z</text></g>
-            </g>
+              {/* Taut triangular canvas with visible ridge, stitched seams, stakes and a believable dark entrance. */}
+              <ellipse cx="1112" cy="551" rx="123" ry="9" fill="#142d2a" opacity=".3"/>
+              <path d="M1001 550 1113 378 1226 550Z" fill="url(#storyTentCanvas)" stroke="#59412e" strokeWidth="5" strokeLinejoin="round"/>
+              <path d="M1113 378 1104 550 1001 550Z" fill="#fff3cf" opacity=".46"/>
+              <path d="M1113 389 1208 541 1113 541Z" fill="#c18b52" opacity=".38"/>
+              <path d="M1113 381 1113 550" stroke="#785438" strokeWidth="4" strokeLinecap="round"/>
+              <path d="M1113 390 1012 541M1120 397 1216 541" fill="none" stroke="#fff4d7" strokeWidth="2.5" opacity=".78"/>
+              <path d="M1030 512 1077 439M1045 526 1086 463M1184 514 1147 455" fill="none" stroke="#c18a53" strokeWidth="2" opacity=".58"/>
+              <path d="M1080 550 1113 466 1150 550Z" fill="#382b24" stroke="#63462f" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="M1090 550 1113 485 1139 550Z" fill="#101b27"/>
+              <path d="M1113 467 1113 550" stroke="#94704d" strokeWidth="2" opacity=".8"/>
+              <path d="M1004 548 1113 378 1224 548" fill="none" stroke="#fff0c6" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M1002 550 987 556M1225 550l15 6" stroke="#766044" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M1110 390 1116 390" stroke="#fff9e5" strokeWidth="4" strokeLinecap="round"/>
+              <g className="storySleeper" aria-hidden="true">
+                <ellipse cx="1115" cy="524" rx="15" ry="7" fill="#090f1a" opacity=".8"/>
+                <circle cx="1115" cy="501" r="8" fill="#171b26"/>
+                <path d="M1110 509q-20 5-18 20l40 0q-1-17-22-20Z" fill="#272d3a"/>
+                <path d="M1096 529q-6 7-3 13m34-13q8 5 8 13" fill="none" stroke="#252a36" strokeWidth="5" strokeLinecap="round"/>
+              </g>
+              <g className="storyZzz" aria-hidden="true"><text x="1122" y="531">Z</text><text x="1142" y="503">z</text><text x="1161" y="476">z</text></g>
+            </g>g>
             <g className="storyCamper">
-              {/* A clear back-facing seated pose: head, neck, shoulders, pointing arm, folded legs and shoes. */}
-              <ellipse cx="842" cy="565" rx="67" ry="9" fill="#254f40" opacity=".25"/>
-              <path d="M818 536q-19 8-31 20l-25 0q-9 0-8 7t11 7l33-1 31-14Z" fill="#314a43" stroke="#243a35" strokeWidth="3" strokeLinejoin="round"/>
-              <path d="M849 539q26 1 42 17l18 1q8 0 8 7t-10 7l-24-2-38-16Z" fill="#314a43" stroke="#243a35" strokeWidth="3" strokeLinejoin="round"/>
-              <path d="M780 565q-9-1-13 6l31 0 9-5Z" fill="#342e2c" stroke="#211f20" strokeWidth="2"/>
-              <path d="M895 567q8-1 13 5l-25 0-7-5Z" fill="#342e2c" stroke="#211f20" strokeWidth="2"/>
-              <path d="M813 517q20-16 43-2l17 31-16 14-47-10-9-19Z" fill="#5b9a75" stroke="#315d49" strokeWidth="4" strokeLinejoin="round"/>
-              <path d="M824 522q16 10 31 0l9 27-20 11-20-11Z" fill="#42785d" opacity=".75"/>
-              <path d="M815 523q-16-15-25-35l-20-15q-7-5-11 1t6 11l16 14 16 31" fill="#5b9a75" stroke="#315d49" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M758 474 749 468" stroke="#d7a174" strokeWidth="9" strokeLinecap="round"/>
-              <circle cx="844" cy="494" r="19" fill="#d7a174" stroke="#8d6046" strokeWidth="3"/>
-              <path d="M825 490q-2-19 15-22 17-4 25 11l-1 13-9-10-12 4-7-4-7 10Z" fill="#3b302b" stroke="#29231f" strokeWidth="2" strokeLinejoin="round"/>
-              <path d="M834 512l-1 7 14 0-1-7" fill="#c88c61"/>
-              <path d="M861 532q14 5 22 16l-5 6-19-9" fill="none" stroke="#d7a174" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M873 546l8 3" stroke="#d7a174" strokeWidth="8" strokeLinecap="round"/>
-              <path d="M828 515q16-9 30 2l12 25-18 13-34-12Z" fill="#5b9a75" stroke="#315d49" strokeWidth="3" strokeLinejoin="round"/>
-              <rect x="882" y="530" width="27" height="32" rx="5" fill="#f0c72e" stroke="#9c7923" strokeWidth="3" className="storyYellowBag"/>
-              <path d="M888 531q7-12 15 0" fill="none" stroke="#9c7923" strokeWidth="3"/>
-              <path d="M886 540h19" stroke="#ffe68b" strokeWidth="2" opacity=".85"/>
+              {/* Ground contact and long soft cast shadow from the firelight at the camper's right. */}
+              <ellipse cx="820" cy="573" rx="102" ry="13" fill="#102b25" opacity=".48" className="storyCamperCastShadow"/>
+              <ellipse cx="840" cy="565" rx="64" ry="8" fill="#1d4639" opacity=".55"/>
+              {/* Shoes and bent legs: a compact, natural seated hiking posture. */}
+              <path d="M803 548q-19 1-31 14l-24 3q-9 2-6 9 3 5 13 2l34-5 24-11Z" fill="#263c37" stroke="#172c28" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="M846 551q25-2 43 14l20 2q9 1 8 8-2 6-12 4l-28-5-38-13Z" fill="#263c37" stroke="#172c28" strokeWidth="3" strokeLinejoin="round"/>
+              <path d="M751 571q-9 0-13 5l28 1 10-5Z" fill="#4c3529" stroke="#251f1c" strokeWidth="2"/>
+              <path d="M895 575q8-2 15 5l-26 0-7-5Z" fill="#4c3529" stroke="#251f1c" strokeWidth="2"/>
+              {/* Broad, athletic torso with natural shoulder taper and shirt folds. */}
+              <path d="M807 517q13-14 31-12l22 4q18 7 25 25l-8 28-26 12-43-10-18-19Z" fill="#3e7657" stroke="#244a3a" strokeWidth="4" strokeLinejoin="round"/>
+              <path d="M816 518q12-10 24-7l18 7 13 21-18 12-31-8Z" fill="#679a70" opacity=".86"/>
+              <path d="M837 520l-6 25 13 17M858 521l12 19-8 10M813 537l13 12" fill="none" stroke="#2b5b43" strokeWidth="3" strokeLinecap="round" opacity=".85"/>
+              {/* Stronger upper arm and forearm raised toward the birds, with elbow and skin highlights. */}
+              <path d="M812 523q-15-13-24-34l-20-15q-8-5-12 1-3 5 6 12l16 14 16 30Z" fill="#477f5c" stroke="#244a3a" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M776 490 764 478" stroke="#dca77c" strokeWidth="11" strokeLinecap="round"/>
+              <path d="M765 478 755 465" stroke="#dca77c" strokeWidth="8" strokeLinecap="round"/>
+              <path d="M759 468l-5-7" stroke="#f1c39a" strokeWidth="3.5" strokeLinecap="round"/>
+              {/* Back-facing head, textured hair and neck. */}
+              <path d="M828 492q-4-18 8-25 17-9 29 5l-1 18-9-7-9 5-7-4-7 9Z" fill="#2a211e" stroke="#171715" strokeWidth="3" strokeLinejoin="round"/>
+              <ellipse cx="844" cy="496" rx="17" ry="19" fill="#c68c65" stroke="#875b43" strokeWidth="2.5"/>
+              <path d="M828 491q2-14 14-17 11-2 20 9l-4 9-9-6-8 3-8-3-5 8Z" fill="#30241f"/>
+              <path d="M837 512l-1 9 15 1-2-10" fill="#bb805b"/>
+              {/* Front arm resting naturally across the lap. */}
+              <path d="M861 531q15 3 23 17l-6 8-20-10" fill="none" stroke="#3f7655" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M878 549l10 5" stroke="#d5a077" strokeWidth="10" strokeLinecap="round"/>
+              {/* Campfire orange bounce light on the fire-facing side of the clothes, arm and hair. */}
+              <path d="M867 531q11 9 15 17M879 553l9 2" fill="none" stroke="#ffb15a" strokeWidth="3.5" strokeLinecap="round" opacity=".8" className="storyFireBounce"/>
+              <path d="M863 539q7 11 8 18" fill="none" stroke="#ff8b3c" strokeWidth="5" strokeLinecap="round" opacity=".4" className="storyFireBounce"/>
+              <path d="M854 483q5 6 5 12" fill="none" stroke="#ffb35c" strokeWidth="2.5" strokeLinecap="round" opacity=".65" className="storyFireBounce"/>
+              {/* Yellow hiking pack with shoulder strap, pockets, seams and buckles. */}
+              <path d="M869 531q8-10 16 0" fill="none" stroke="#473b27" strokeWidth="4" strokeLinecap="round"/>
+              <rect x="880" y="530" width="31" height="35" rx="6" fill="#dcae21" stroke="#86651c" strokeWidth="3" className="storyYellowBag"/>
+              <path d="M885 539h21M885 557h21M888 541v13" stroke="#f6d75c" strokeWidth="2" opacity=".9"/>
+              <rect x="891" y="544" width="10" height="7" rx="2" fill="#80601b"/>
+              <path d="M885 532q10-9 20 0" fill="none" stroke="#f7db69" strokeWidth="2.5"/>
             </g>
             <g className="storyFire">
               <ellipse cx="978" cy="571" rx="104" ry="75" fill="url(#storyFireGlow)" className="storyFireLight"/><ellipse cx="978" cy="584" rx="57" ry="15" fill="#ffb95b" opacity=".2"/>
