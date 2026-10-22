@@ -964,3 +964,35 @@ footer{border-color:rgba(72,109,78,.2);color:#789078}
  .storyCamper{transform-origin:815px 570px}
 }
 @media(prefers-reduced-motion:reduce){.storySunDisc,.storySunRays,.storySunHalo{animation:none!important}}
+
+
+/* Final polish: rays stay tight to the sun, audio control returns to bottom-right. */
+.storySunRays{
+  transform-box:fill-box!important;
+  transform-origin:center!important;
+  animation:storyRayTurn 72s linear infinite!important;
+}
+.storySunDisc,.storySunHalo{
+  transform-box:fill-box;
+  transform-origin:center;
+}
+.storySunDisc{
+  animation:storySunPulse 5s ease-in-out infinite alternate!important;
+}
+.storySunHalo{
+  animation:storyHaloBreathe 6s ease-in-out infinite alternate!important;
+}
+.audioButton{
+  top:auto!important;
+  bottom:clamp(16px,2.5vw,30px)!important;
+  right:clamp(16px,2.5vw,30px)!important;
+  z-index:120!important;
+}
+@media(max-width:700px){
+  .audioButton{
+    top:auto!important;
+    bottom:16px!important;
+    right:16px!important;
+    width:52px;height:52px;
+  }
+}
