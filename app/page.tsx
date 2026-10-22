@@ -352,17 +352,20 @@ export default function Home() {
       </div>
 
       <div className="noise" />
-      <section id="top" className="hero legacyHero">
-        <div className="heroBackdrop" aria-hidden="true"><img src={ASSETS.world} alt="" /></div>
-        <div className="heroInner">
-          <p className="eyebrow"><span /> Creative Developer · AI · Web</p>
-          <h1>SHIVRAJ</h1>
-          <p className="p className="identityAge">I Am Just <strong>17</strong> Years old Boy</p>
+
+      <section id="about" className="about section">
+        <div className="sectionLabel">01 — ABOUT</div>
+        <div className="aboutGrid">
+          <div className="aboutIdentity">
+            <p className="identityIntro">Hey My Name is</p>
+            <h2 className="identityName">SHIVRAJ</h2>
+            <p className="identityAge">I Am Just <strong>17</strong> Years old Boy</p>
             <p className="identityLocation">I Am From{" "}
               <button type="button" className="locationLink" onClick={openRamgarhMaps} aria-label="Open Ramgarh, Jharkhand 829122 in maps">Ramgarh, Jharkhand - 829122</button>
             </p>
             <a className="identityContact" href="#contact" onClick={(event) => {
-              event.preventDefault(); window.history.replaceState(null, "", "#contact");
+              event.preventDefault();
+              window.history.replaceState(null, "", "#contact");
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}><span>CONTACT</span><b>↗</b></a>
           </div>
