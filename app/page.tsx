@@ -282,7 +282,7 @@ export default function Home() {
         <span className="audioButtonAura" aria-hidden="true" />
       </button>
 
-      <div className="parallaxScrollScene" ref={scrollSceneRef}>
+      <div id="top" className="parallaxScrollScene" ref={scrollSceneRef}>
         <div className="stickyViewport">
           <div className="worldLayer" ref={worldRef}><img src={ASSETS.world} alt="" /></div>
           <div className="cloudLayer" ref={cloudsRef}><img src={ASSETS.clouds} alt="" /></div>
@@ -352,29 +352,12 @@ export default function Home() {
       </div>
 
       <div className="noise" />
-      <nav className={scrolled ? "contentNav navScrolled" : "contentNav"}>
-        <a className="brand" href="#top">S<span>.</span></a>
-        <div className="navLinks"><a href="#about">About</a><a href="#work">Work</a><a className="navCta" href="#contact">Let&apos;s talk <span>↗</span></a></div>
-      </nav>
-
       <section id="top" className="hero legacyHero">
         <div className="heroBackdrop" aria-hidden="true"><img src={ASSETS.world} alt="" /></div>
         <div className="heroInner">
           <p className="eyebrow"><span /> Creative Developer · AI · Web</p>
           <h1>SHIVRAJ</h1>
-          <p className="heroSub">A curious mind, a love for nature, and a little magic in everything we build.</p>
-          <a href="#work" className="heroButton">Explore my work <span>↓</span></a>
-        </div>
-        <div className="scrollHint"><span /> Scroll to explore</div>
-      </section>
-
-      <section id="about" className="about section">
-        <div className="sectionLabel">01 — ABOUT</div>
-        <div className="aboutGrid">
-          <div className="aboutIdentity">
-            <p className="identityIntro">Hey My Name is</p>
-            <h2 className="identityName">SHIVRAJ</h2>
-            <p className="identityAge">I Am Just <strong>17</strong> Years old Boy</p>
+          <p className="p className="identityAge">I Am Just <strong>17</strong> Years old Boy</p>
             <p className="identityLocation">I Am From{" "}
               <button type="button" className="locationLink" onClick={openRamgarhMaps} aria-label="Open Ramgarh, Jharkhand 829122 in maps">Ramgarh, Jharkhand - 829122</button>
             </p>
