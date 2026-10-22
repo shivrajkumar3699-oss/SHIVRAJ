@@ -221,11 +221,24 @@ export default function Home() {
       )}
 
       <button
-        className="audioButton"
+        className={muted ? "audioButton audioButtonMuted" : "audioButton"}
         onClick={toggleAudio}
         aria-label={muted ? "Play melody" : "Mute melody"}
+        aria-pressed={!muted}
+        title={muted ? "Play ambient melody" : "Mute ambient melody"}
       >
-        {muted ? "🔇" : "🔊"}
+        <svg className="audioIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+          {muted ? (
+            <path d="m16 9 5 6m0-6-5 6" />
+          ) : (
+            <>
+              <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+              <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+            </>
+          )}
+        </svg>
+        <span className="audioButtonAura" aria-hidden="true" />
       </button>
 
       <div className="noise" />
