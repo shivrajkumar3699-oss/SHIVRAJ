@@ -252,6 +252,10 @@ export default function Home() {
       {!entered && (
         <div className="welcomeScreen immersiveWelcome">
           <div className="welcomePortal" aria-hidden="true" />
+          <div className="welcomeHorizon" aria-hidden="true">
+            <img className="welcomeHorizonWorld" src={ASSETS.world} alt="" />
+            <img className="welcomeHorizonClouds" src={ASSETS.clouds} alt="" />
+          </div>
           <div className="welcomeCurtain welcomeCurtainLeft" aria-hidden="true" />
           <div className="welcomeCurtain welcomeCurtainRight" aria-hidden="true" />
           <div className="welcomeVignette" />
