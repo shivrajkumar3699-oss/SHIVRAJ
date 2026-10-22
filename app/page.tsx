@@ -98,30 +98,6 @@ export default function Home() {
     }
   };
 
-  const openRamgarhMaps = () => {
-    const destination = "Ramgarh, Jharkhand 829122, India";
-    const ua = navigator.userAgent || "";
-    const isIOS = /iPad|iPhone|iPod/.test(ua) ||
-      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    const isAndroid = /Android/i.test(ua);
-
-    if (isIOS) {
-      window.location.href = `maps://?q=${encodeURIComponent(destination)}`;
-      return;
-    }
-
-    if (isAndroid) {
-      window.location.href = `geo:0,0?q=${encodeURIComponent(destination)}`;
-      return;
-    }
-
-    window.open(
-      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
-
   const toggleAudio = async () => {
     const a = audioRef.current;
     if (!a) return;
@@ -137,28 +113,6 @@ export default function Home() {
     } catch (e) {
       console.error("Melody playback failed:", e);
     }
-  };
-
-  const openDefaultMailApp = () => {
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}`;
-    let appOpened = false;
-
-    const markAppOpened = () => {
-      appOpened = true;
-    };
-
-    window.addEventListener("blur", markAppOpened, { once: true });
-
-    window.location.href = mailtoUrl;
-
-    window.setTimeout(() => {
-      window.removeEventListener("blur", markAppOpened);
-
-      if (!appOpened && document.visibilityState === "visible") {
-        window.location.href =
-          `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`;
-      }
-    }, 650);
   };
 
   const particles = Array.from({ length: 52 }, (_, i) => i);
@@ -463,14 +417,15 @@ export default function Home() {
             </p>
             <p className="identityLocation">
               I Am From{" "}
-              <button
-                type="button"
+              <a
                 className="locationLink"
-                onClick={openRamgarhMaps}
-                aria-label="Open Ramgarh, Jharkhand 829122 in maps"
+                href="https://www.google.com/maps/search/?api=1&query=Ramgarh%2C%20Jharkhand%20829122%2C%20India"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Ramgarh, Jharkhand 829122 in Google Maps in a new tab"
               >
                 Ramgarh, Jharkhand - 829122
-              </button>
+              </a>
             </p>
             <a
               className="identityContact"
@@ -618,9 +573,10 @@ export default function Home() {
           </h2>
           <div className="mailActions">
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`}
               className="mail"
-              onClick={openDefaultMailApp}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {CONTACT_EMAIL} <b>↗</b>
             </a>
